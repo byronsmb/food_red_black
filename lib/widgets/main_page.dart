@@ -10,6 +10,7 @@ class MainPage extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 52, 63, 71),
       appBar: AppBar(
         actions: [const Icon(Icons.line_axis)],
+        backgroundColor: Color.fromARGB(255, 17, 23, 31),
         shadowColor: Colors.red,
         elevation: 8,
       ),
