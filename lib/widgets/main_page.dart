@@ -14,6 +14,7 @@ class MainPage extends StatelessWidget {
           crossAxisCount: 2, // number of items in each row
           mainAxisSpacing: 4.0, // espacio entre filas
           crossAxisSpacing: 4.0, // espacio entre columnas
+          childAspectRatio: 0.7,
         ),
         padding: EdgeInsets.all(8.0), // padding around the grid
         itemCount: lista.length, // total number of items
