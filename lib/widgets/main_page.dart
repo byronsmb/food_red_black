@@ -11,7 +11,7 @@ class MainPage extends StatelessWidget {
       appBar: AppBar(actions: [Icon(Icons.line_axis)]),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, // number of items in each row
+          crossAxisCount: 2, // number of items in each row
           mainAxisSpacing: 8.0, // spacing between rows
           crossAxisSpacing: 8.0, // spacing between columns
         ),
@@ -33,4 +33,25 @@ class MainPage extends StatelessWidget {
       ),
     );
   }
+}
+
+bool perteneceASerie(int numero) {
+  // Comenzamos desde 0
+  int inicioSerie = 0;
+  // Mientras el número de inicio de la serie sea menor o igual al número dado
+  while (inicioSerie <= numero) {
+    if (inicioSerie == numero) {
+      return true;
+    }
+
+    inicioSerie += 3;
+
+    if (inicioSerie == numero) {
+      return true;
+    }
+
+    inicioSerie++;
+  }
+
+  return false;
 }
