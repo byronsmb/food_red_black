@@ -7,6 +7,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     const lista = ['1', '2', '1', '2', '1', '2'];
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 52, 63, 71),
       appBar: AppBar(actions: [Icon(Icons.line_axis)]),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -20,7 +21,7 @@ class MainPage extends StatelessWidget {
           return Container(
             color: index % 2 == 0
                 ? Color.fromARGB(253, 39, 48, 55)
-                : Color(0x2D3A42), // color of grid items
+                : Color.fromARGB(255, 45, 58, 66), // color of grid items
             child: Center(
               child: Text(
                 lista[index],
