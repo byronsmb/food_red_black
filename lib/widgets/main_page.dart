@@ -20,8 +20,8 @@ class MainPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return Container(
             color: posicionElmento(index)
-                ? Color.fromARGB(253, 39, 48, 55)
-                : Color.fromARGB(255, 45, 58, 66), // color of grid items
+                ? const Color.fromARGB(253, 39, 48, 55)
+                : const Color.fromARGB(255, 45, 58, 66), // color of grid items
             child: Center(
               child: Text(
                 lista[index],
