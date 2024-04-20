@@ -8,7 +8,11 @@ class MainPage extends StatelessWidget {
     const lista = ['1', '2', '1', '2', '1', '2'];
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 52, 63, 71),
-      appBar: AppBar(actions: [Icon(Icons.line_axis)]),
+      appBar: AppBar(
+        actions: [const Icon(Icons.line_axis)],
+        shadowColor: Colors.red,
+        elevation: 8,
+      ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // number of items in each row
