@@ -12,8 +12,8 @@ class MainPage extends StatelessWidget {
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // number of items in each row
-          mainAxisSpacing: 8.0, // spacing between rows
-          crossAxisSpacing: 8.0, // spacing between columns
+          mainAxisSpacing: 4.0, // espacio entre filas
+          crossAxisSpacing: 4.0, // espacio entre columnas
         ),
         padding: EdgeInsets.all(8.0), // padding around the grid
         itemCount: lista.length, // total number of items
