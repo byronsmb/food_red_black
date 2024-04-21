@@ -37,22 +37,22 @@ var comidaDisponible = [
         'Nuestra interpretación de la hamburguesa clásica, con una generosa porción de carne jugosa y una irresistible salsa barbacoa que deleitará tus sentidos.',
   ),
   Comida(
-    imagenUrl: 'assets/images/.png',
+    imagenUrl: 'assets/images/ensalada_pera_rucula.png',
     nombre: 'Ensalada de pera y rúcula.',
     precio: 15.00,
     descripcion:
         'Deliciosos dumplings rellenos de ingredientes frescos y sabrosos, cocidos al vapor y servidos con salsas que te harán salivar.',
   ),
   Comida(
-    imagenUrl: 'assets/images/pechugaPollo.png',
+    imagenUrl: 'assets/images/ensalada_algas_wakame.png',
     nombre: 'Ensalada de algas wakame',
     precio: 12.00,
     descripcion:
         'Una opción saludable y llena de sabor, nuestra pechuga de pollo está cuidadosamente cocinada para mantener su jugosidad, acompañada de acompañamientos saludables.',
   ),
   Comida(
-    imagenUrl: 'assets/images/salmon-trigueros-judias.png',
-    nombre: 'Trigueros con Judias',
+    imagenUrl: 'assets/images/frutos_rojos.png',
+    nombre: 'Frutos rojos',
     precio: 12.00,
     descripcion:
         'Una combinación de sabores refinados y nutritivos, donde el salmón se complementa con verduras frescas de temporada.',
