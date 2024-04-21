@@ -2,8 +2,8 @@ import 'package:food_red_black/models/comida.dart';
 
 var comidaDisponible = [
   Comida(
-    imagenUrl: 'assets/images/fileteCarne.png',
-    nombre: 'Filete de carne',
+    imagenUrl: 'assets/images/patatas_asadas.png',
+    nombre: 'Patatas asadas',
     precio: 20.00,
     descripcion:
         'Un corte premium de carne jugosa y tierna, cocinado a la perfección y acompañado de guarniciones frescas y sabrosas.',
