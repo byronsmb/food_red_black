@@ -34,9 +34,13 @@ class MainPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('\$2.33'),
-                      Icon(Icons.favorite_border),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.favorite_border,
+                              color: Color.fromARGB(255, 180, 13, 35))),
                     ],
                   ),
                   Container(

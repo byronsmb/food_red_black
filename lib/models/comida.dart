@@ -8,6 +8,7 @@ class Comida {
     required this.nombre,
     required this.precio,
     required this.descripcion,
+    required this.isFavourite,
   }) : id = uuid.v4();
 
   final String id;
@@ -15,4 +16,5 @@ class Comida {
   final String nombre;
   final double precio;
   final String descripcion;
+  final bool isFavourite;
 }
