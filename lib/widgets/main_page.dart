@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:food_red_black/data/datos_ficticios.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const lista = ['1', '2', '1', '2', '1', '2'];
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 52, 63, 71),
       appBar: AppBar(
@@ -22,17 +22,14 @@ class MainPage extends StatelessWidget {
           childAspectRatio: 0.7,
         ),
         padding: EdgeInsets.all(8.0), // padding around the grid
-        itemCount: lista.length, // total number of items
+        itemCount: comidaDisponible.length, // total number of items
         itemBuilder: (context, index) {
           return Container(
             color: posicionElmento(index)
                 ? const Color.fromARGB(253, 39, 48, 55)
                 : const Color.fromARGB(255, 45, 58, 66), // color of grid items
             child: Center(
-              child: Text(
-                lista[index],
-                style: TextStyle(fontSize: 18.0, color: Colors.white),
-              ),
+              child: Image.asset(comidaDisponible[index].imagenUrl),
             ),
           );
         },
