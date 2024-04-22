@@ -29,10 +29,16 @@ class MainPage extends StatelessWidget {
                 ? const Color.fromARGB(253, 39, 48, 55)
                 : const Color.fromARGB(255, 45, 58, 66), // color of grid items
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('\$2.33'),
+                  Row(
+                    children: [
+                      Text('\$2.33'),
+                      Icon(Icons.favorite_border),
+                    ],
+                  ),
                   Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
@@ -45,6 +51,11 @@ class MainPage extends StatelessWidget {
                         ],
                       ),
                       child: Image.asset(comidaDisponible[index].imagenUrl)),
+                  Text(
+                    'Spaguetti a la carbonara ',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ],
               ),
             ),
