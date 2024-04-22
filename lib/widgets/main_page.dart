@@ -9,13 +9,13 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 52, 63, 71),
       appBar: AppBar(
-        actions: [const Icon(Icons.line_axis)],
+        actions: const [Icon(Icons.line_axis)],
         backgroundColor: Color.fromARGB(255, 17, 23, 31),
         shadowColor: Colors.red,
         elevation: 8,
       ),
       body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // number of items in each row
           mainAxisSpacing: 4.0, // espacio entre filas
           crossAxisSpacing: 4.0, // espacio entre columnas
