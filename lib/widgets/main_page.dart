@@ -28,8 +28,25 @@ class MainPage extends StatelessWidget {
             color: posicionElmento(index)
                 ? const Color.fromARGB(253, 39, 48, 55)
                 : const Color.fromARGB(255, 45, 58, 66), // color of grid items
-            child: Center(
-              child: Image.asset(comidaDisponible[index].imagenUrl),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  Text('\$2.33'),
+                  Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black,
+                            blurRadius: 8,
+                            offset: Offset(5, 5),
+                          ),
+                        ],
+                      ),
+                      child: Image.asset(comidaDisponible[index].imagenUrl)),
+                ],
+              ),
             ),
           );
         },
