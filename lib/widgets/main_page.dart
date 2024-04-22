@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:food_red_black/data/datos_ficticios.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +26,7 @@ class MainPage extends StatelessWidget {
           crossAxisSpacing: 4.0, // espacio entre columnas
           childAspectRatio: 0.7,
         ),
-        padding: EdgeInsets.all(8.0), // padding around the grid
+        padding: const EdgeInsets.all(8.0), // padding around the grid
         itemCount: comidaDisponible.length, // total number of items
         itemBuilder: (context, index) {
           return Container(
@@ -38,8 +43,16 @@ class MainPage extends StatelessWidget {
                     children: [
                       Text('\$2.33'),
                       IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.favorite_border,
+                          onPressed: () {
+                            setState(() {
+                              comidaDisponible[index].isFavourite =
+                                  !comidaDisponible[index].isFavourite;
+                            });
+                          },
+                          icon: Icon(
+                              comidaDisponible[index].isFavourite
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
                               color: Color.fromARGB(255, 180, 13, 35))),
                     ],
                   ),

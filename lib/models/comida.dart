@@ -16,5 +16,5 @@ class Comida {
   final String nombre;
   final double precio;
   final String descripcion;
-  final bool isFavourite;
+  bool isFavourite;
 }
