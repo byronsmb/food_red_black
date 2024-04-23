@@ -72,6 +72,7 @@ class _MainPageState extends State<MainPage> {
                     'Spaguetti a la carbonara ',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
+                    style: TextStyle(color: Color.fromARGB(255, 154, 163, 168)),
                   ),
                 ],
               ),
