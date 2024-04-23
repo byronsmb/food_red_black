@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_red_black/data/datos_ficticios.dart';
+import 'package:postgres/legacy.dart';
+import 'package:postgres/postgres.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -9,6 +11,24 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  late Connection conn;
+
+  void cargarBD() async {
+    conn = await Connection.open(Endpoint(
+      host: 'localhost',
+      database: 'menu_restaurante',
+      username: 'postgres',
+      password: 'Byr@23/',
+    ));
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    cargarBD();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
