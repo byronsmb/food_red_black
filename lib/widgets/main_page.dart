@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
         itemCount: comidaDisponible.length, // total number of items
         itemBuilder: (context, index) {
           return Container(
-            color: posicionElmento(index)
+            color: posicionElemento(index)
                 ? const Color.fromARGB(253, 39, 48, 55)
                 : const Color.fromARGB(255, 45, 58, 66), // color of grid items
             child: Padding(
@@ -43,17 +43,18 @@ class _MainPageState extends State<MainPage> {
                     children: [
                       Text('\$2.33'),
                       IconButton(
-                          onPressed: () {
-                            setState(() {
-                              comidaDisponible[index].isFavourite =
-                                  !comidaDisponible[index].isFavourite;
-                            });
-                          },
-                          icon: Icon(
-                              comidaDisponible[index].isFavourite
-                                  ? Icons.favorite
-                                  : Icons.favorite_border,
-                              color: Color.fromARGB(255, 180, 13, 35))),
+                        onPressed: () {
+                          setState(() {
+                            comidaDisponible[index].isFavourite =
+                                !comidaDisponible[index].isFavourite;
+                          });
+                        },
+                        icon: Icon(
+                            comidaDisponible[index].isFavourite
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: Color.fromARGB(255, 180, 13, 35)),
+                      ),
                     ],
                   ),
                   Container(
@@ -84,7 +85,7 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-bool posicionElmento(int numero) {
+bool posicionElemento(int numero) {
   int inicioSerie = 0;
   while (inicioSerie <= numero) {
     if (inicioSerie == numero) {
