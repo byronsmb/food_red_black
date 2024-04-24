@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   late Connection conn;
   late Result resultados;
-  final List comidasDispo = [];
+  final List comidasDisponibles = [];
   void cargarBD() async {
     conn = await Connection.open(
       //Si está ejecutando el servidor localmente y usando el emulador de Android,
@@ -44,9 +44,9 @@ class _MainPageState extends State<MainPage> {
         peso: int.parse(fila[6].toString()),
         isFavourite: bool.parse(fila[7].toString()),
       );
-      comidasDispo.add(comida);
+      comidasDisponibles.add(comida);
     }
-    print("LISTA ${comidasDispo[0].nombre}"); // first row
+    print("LISTA ${comidasDisponibles[0].nombre}"); // first row
     print("LISTA ${comidasDispo.length}");
   }
 
