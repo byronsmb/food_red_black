@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 //import 'package:food_red_black/data/datos_ficticios.dart';
 import 'package:food_red_black/models/comida.dart';
-import 'package:postgres/legacy.dart';
+
 import 'package:postgres/postgres.dart';
 
 class MainPage extends StatefulWidget {
@@ -19,13 +19,15 @@ class _MainPageState extends State<MainPage> {
   final List comidasDispo = [];
   void cargarBD() async {
     conn = await Connection.open(
+      //Si está ejecutando el servidor localmente y usando el emulador de Android,
+      //  entonces el endpoint del server debería ser 10.0.2.2:8000 el localhost:8000
       Endpoint(
         host: '10.0.2.2',
         database: 'menu_restaurante',
         username: 'postgres',
         password: 'Byr@23/',
       ),
-      settings: ConnectionSettings(sslMode: SslMode.disable),
+      settings: const ConnectionSettings(sslMode: SslMode.disable),
     );
 
     //cargar datos de comidas en laBD
@@ -121,7 +123,7 @@ class _MainPageState extends State<MainPage> {
                     comidasDispo[index].nombre,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Color.fromARGB(255, 154, 163, 168)),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),
@@ -147,7 +149,6 @@ bool posicionElemento(int numero) {
   }
   return false;
 }
-
 
 //control de ERRORES
 //  Agrupar bien lo quese realiza en el INITSTATE
