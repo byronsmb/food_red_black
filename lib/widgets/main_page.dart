@@ -98,7 +98,7 @@ class _MainPageState extends State<MainPage> {
                           });
                         },
                         icon: Icon(
-                            comidasDispo[index].isFavourite
+                            comidasDisponibles[index].isFavourite
                                 ? Icons.favorite
                                 : Icons.favorite_border,
                             color: Color.fromARGB(255, 180, 13, 35)),
@@ -116,9 +116,10 @@ class _MainPageState extends State<MainPage> {
                           ),
                         ],
                       ),
-                      child: Image.network(comidasDispo[index].imagenUrl)),
+                      child:
+                          Image.network(comidasDisponibles[index].imagenUrl)),
                   Text(
-                    comidasDispo[index].nombre,
+                    comidasDisponibles[index].nombre,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Colors.white),
