@@ -65,7 +65,7 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: Color.fromARGB(255, 53, 66, 73),
       appBar: AppBar(
         actions: const [Icon(Icons.line_axis)],
-        backgroundColor: Color.fromARGB(255, 17, 23, 31),
+        backgroundColor: const Color.fromARGB(255, 17, 23, 31),
         shadowColor: Colors.red,
         elevation: 8,
       ),
