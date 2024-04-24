@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 //import 'package:food_red_black/data/datos_ficticios.dart';
 import 'package:food_red_black/models/comida.dart';
@@ -47,7 +45,7 @@ class _MainPageState extends State<MainPage> {
       comidasDisponibles.add(comida);
     }
     print("LISTA ${comidasDisponibles[0].nombre}"); // first row
-    print("LISTA ${comidasDispo.length}");
+    print("LISTA ${comidasDisponibles.length}");
   }
 
   @override
@@ -77,7 +75,7 @@ class _MainPageState extends State<MainPage> {
           childAspectRatio: 0.7,
         ),
         padding: const EdgeInsets.all(8.0), // padding around the grid
-        itemCount: comidasDispo.length, // total number of items
+        itemCount: comidasDisponibles.length, // total number of items
         itemBuilder: (context, index) {
           return Container(
             color: posicionElemento(index)
@@ -95,8 +93,8 @@ class _MainPageState extends State<MainPage> {
                       IconButton(
                         onPressed: () {
                           setState(() {
-                            comidasDispo[index].isFavourite =
-                                !comidasDispo[index].isFavourite;
+                            comidasDisponibles[index].isFavourite =
+                                !comidasDisponibles[index].isFavourite;
                           });
                         },
                         icon: Icon(
