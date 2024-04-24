@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
-import 'package:food_red_black/data/datos_ficticios.dart';
+//import 'package:food_red_black/data/datos_ficticios.dart';
+import 'package:food_red_black/models/comida.dart';
 import 'package:postgres/legacy.dart';
 import 'package:postgres/postgres.dart';
 
@@ -12,14 +15,36 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late Connection conn;
-
+  late Result resultados;
+  final List comidasDispo = [];
   void cargarBD() async {
-    conn = await Connection.open(Endpoint(
-      host: 'localhost',
-      database: 'menu_restaurante',
-      username: 'postgres',
-      password: 'Byr@23/',
-    ));
+    conn = await Connection.open(
+      Endpoint(
+        host: '10.0.2.2',
+        database: 'menu_restaurante',
+        username: 'postgres',
+        password: 'Byr@23/',
+      ),
+      settings: ConnectionSettings(sslMode: SslMode.disable),
+    );
+
+    //cargar datos de comidas en laBD
+    resultados = await conn.execute(Sql.named('SELECT * FROM comidas'));
+    print("aaaaaaaaa ${resultados[0]}"); // first row
+    for (var fila in resultados) {
+      var comida = Comida(
+        id: int.parse(fila[0].toString()),
+        nombre: fila[1].toString(),
+        descripcion: fila[2].toString(),
+        imagenUrl: fila[3].toString(),
+        precio: double.parse(fila[4].toString()),
+        calorias: int.parse(fila[5].toString()),
+        peso: int.parse(fila[6].toString()),
+        isFavourite: bool.parse(fila[7].toString()),
+      );
+      comidasDispo.add(comida);
+    }
+    print("LISTA ${comidasDispo[0].nombre}"); // first row
   }
 
   @override
@@ -28,6 +53,8 @@ class _MainPageState extends State<MainPage> {
     super.initState();
     cargarBD();
   }
+
+  void cargarDatosBD() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +74,7 @@ class _MainPageState extends State<MainPage> {
           childAspectRatio: 0.7,
         ),
         padding: const EdgeInsets.all(8.0), // padding around the grid
-        itemCount: comidaDisponible.length, // total number of items
+        itemCount: comidasDispo.length, // total number of items
         itemBuilder: (context, index) {
           return Container(
             color: posicionElemento(index)
@@ -65,12 +92,12 @@ class _MainPageState extends State<MainPage> {
                       IconButton(
                         onPressed: () {
                           setState(() {
-                            comidaDisponible[index].isFavourite =
-                                !comidaDisponible[index].isFavourite;
+                            comidasDispo[index].isFavourite =
+                                !comidasDispo[index].isFavourite;
                           });
                         },
                         icon: Icon(
-                            comidaDisponible[index].isFavourite
+                            comidasDispo[index].isFavourite
                                 ? Icons.favorite
                                 : Icons.favorite_border,
                             color: Color.fromARGB(255, 180, 13, 35)),
@@ -88,9 +115,9 @@ class _MainPageState extends State<MainPage> {
                           ),
                         ],
                       ),
-                      child: Image.asset(comidaDisponible[index].imagenUrl)),
+                      child: Image.network(comidasDispo[index].imagenUrl)),
                   Text(
-                    'Spaguetti a la carbonara ',
+                    comidasDispo[index].nombre,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Color.fromARGB(255, 154, 163, 168)),
