@@ -62,7 +62,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 53, 66, 73),
+      backgroundColor: const Color.fromARGB(255, 53, 66, 73),
       appBar: AppBar(
         actions: const [Icon(Icons.line_axis)],
         backgroundColor: const Color.fromARGB(255, 17, 23, 31),
