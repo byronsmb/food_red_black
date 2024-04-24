@@ -1,6 +1,6 @@
 import 'package:food_red_black/models/comida.dart';
 
-var comidaDisponible = [
+/*var comidaDisponible = [
   Comida(
     imagenUrl: 'assets/images/patatas_asadas.png',
     nombre: 'Patatas asadas',
@@ -66,3 +66,4 @@ var comidaDisponible = [
     isFavourite: false,
   ),
 ];
+*/

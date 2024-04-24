@@ -45,6 +45,7 @@ class _MainPageState extends State<MainPage> {
       comidasDispo.add(comida);
     }
     print("LISTA ${comidasDispo[0].nombre}"); // first row
+    print("LISTA ${comidasDispo.length}");
   }
 
   @override
@@ -59,7 +60,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 52, 63, 71),
+      backgroundColor: Color.fromARGB(255, 53, 66, 73),
       appBar: AppBar(
         actions: const [Icon(Icons.line_axis)],
         backgroundColor: Color.fromARGB(255, 17, 23, 31),
@@ -78,8 +79,8 @@ class _MainPageState extends State<MainPage> {
         itemBuilder: (context, index) {
           return Container(
             color: posicionElemento(index)
-                ? const Color.fromARGB(253, 39, 48, 55)
-                : const Color.fromARGB(255, 45, 58, 66), // color of grid items
+                ? Color.fromARGB(255, 40, 48, 53)
+                : Color.fromARGB(255, 48, 58, 64), // color of grid items
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Column(
@@ -146,3 +147,8 @@ bool posicionElemento(int numero) {
   }
   return false;
 }
+
+
+//control de ERRORES
+//  Agrupar bien lo quese realiza en el INITSTATE
+//FUTURE BUILDER
