@@ -103,7 +103,7 @@ class _MainPageState extends State<MainPage> {
                             comidasDisponibles[index].isFavourite
                                 ? Icons.favorite
                                 : Icons.favorite_border,
-                            color: Color.fromARGB(255, 180, 13, 35)),
+                            color: const Color.fromARGB(255, 180, 13, 35)),
                       ),
                     ],
                   ),
