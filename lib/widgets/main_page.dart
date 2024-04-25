@@ -81,8 +81,8 @@ class _MainPageState extends State<MainPage> {
         itemBuilder: (context, index) {
           return Container(
             color: posicionElemento(index)
-                ? Color.fromARGB(255, 40, 48, 53)
-                : Color.fromARGB(255, 48, 58, 64), // color of grid items
+                ? const Color.fromARGB(255, 40, 48, 53)
+                : const Color.fromARGB(255, 48, 58, 64), // color of grid items
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Column(
