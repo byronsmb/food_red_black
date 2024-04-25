@@ -16,21 +16,25 @@ class _MainPageState extends State<MainPage> {
   late Result resultados;
   final List comidasDisponibles = [];
   void cargarBD() async {
-    conn = await Connection.open(
-      //Si está ejecutando el servidor localmente y usando el emulador de Android,
-      //  entonces el endpoint del server debería ser 10.0.2.2:8000 el localhost:8000
-      Endpoint(
-        host: '10.0.2.2',
-        database: 'menu_restaurante',
-        username: 'postgres',
-        password: 'Byr@23/',
-      ),
-      settings: const ConnectionSettings(sslMode: SslMode.disable),
-    );
+    try {
+      conn = await Connection.open(
+        //Si está ejecutando el servidor localmente y usando el emulador de Android,
+        //  entonces el endpoint del server debería ser 10.0.2.2:8000 el localhost:8000
+        Endpoint(
+          host: '10.0.2.2',
+          database: 'menu_restaurante',
+          username: 'postgres',
+          password: 'Byr@23/',
+        ),
+        settings: const ConnectionSettings(sslMode: SslMode.disable),
+      );
+    } catch (e) {
+      print('Error  al cargar BD: ${e.toString()}');
+    }
 
-    //cargar datos de comidas en laBD
+    //cargar datos de comidas en la  BD
     resultados = await conn.execute(Sql.named('SELECT * FROM comidas'));
-    print("aaaaaaaaa ${resultados[0]}"); // first row
+
     for (var fila in resultados) {
       var comida = Comida(
         id: int.parse(fila[0].toString()),
@@ -44,8 +48,6 @@ class _MainPageState extends State<MainPage> {
       );
       comidasDisponibles.add(comida);
     }
-    print("LISTA ${comidasDisponibles[0].nombre}"); // first row
-    print("LISTA ${comidasDisponibles.length}");
   }
 
   @override
@@ -106,23 +108,23 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                   Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 8,
-                            offset: Offset(5, 5),
-                          ),
-                        ],
-                      ),
-                      child:
-                          Image.network(comidasDisponibles[index].imagenUrl)),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 8,
+                          offset: Offset(5, 5),
+                        ),
+                      ],
+                    ),
+                    child: Image.network(comidasDisponibles[index].imagenUrl),
+                  ),
                   Text(
                     comidasDisponibles[index].nombre,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ],
               ),

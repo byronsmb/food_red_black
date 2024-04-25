@@ -49,7 +49,7 @@ import 'package:food_red_black/models/comida.dart';
         'Deliciosos dumplings rellenos de ingredientes frescos y sabrosos, cocidos al vapor y servidos con salsas que te harán salivar.',
     isFavourite: false,
   ),
-  Comida(
+  Comida( https://i.imgur.com/l8roQZ2.png
     imagenUrl: 'assets/images/ensalada_algas_wakame.png',
     nombre: 'Ensalada de algas wakame',
     precio: 12.00,
@@ -57,7 +57,7 @@ import 'package:food_red_black/models/comida.dart';
         'Una opción saludable y llena de sabor, nuestra pechuga de pollo está cuidadosamente cocinada para mantener su jugosidad, acompañada de acompañamientos saludables.',
     isFavourite: false,
   ),
-  Comida(
+  Comida( https://i.imgur.com/O6h4dj2.png
     imagenUrl: 'assets/images/frutos_rojos.png',
     nombre: 'Frutos rojos',
     precio: 12.00,
