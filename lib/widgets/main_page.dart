@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_red_black/models/comida.dart';
 
 import 'package:postgres/postgres.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -120,10 +121,14 @@ class _MainPageState extends State<MainPage> {
                     child: Image.network(comidasDisponibles[index].imagenUrl),
                   ),
                   Text(
-                    comidasDisponibles[index].nombre,
+                    'salmon al ajillo con patatas fritas y coca cola', //comidasDisponibles[index].nombre,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(color: Colors.white),
+                    style: GoogleFonts.bayon(
+                      textStyle: Theme.of(context).textTheme.displayLarge,
+                      fontSize: 18,
+                      //fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ],
               ),
