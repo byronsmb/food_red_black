@@ -91,7 +91,14 @@ class _MainPageState extends State<MainPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('\$2.33'),
+                      Text(
+                        '\$ 2.33',
+                        style: GoogleFonts.bayon(
+                          textStyle: Theme.of(context).textTheme.displayLarge,
+                          fontSize: 18,
+                          //fontWeight: FontWeight.w700,
+                        ),
+                      ),
                       IconButton(
                         onPressed: () {
                           setState(() {
@@ -120,6 +127,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                     child: Image.network(comidasDisponibles[index].imagenUrl),
                   ),
+                  //SizedBox(height: 10),
                   Text(
                     'salmon al ajillo con patatas fritas y coca cola', //comidasDisponibles[index].nombre,
                     maxLines: 2,
