@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
   late Connection conn;
   late Result resultados;
   final List comidasDisponibles = [];
-  void cargarBD() async {
+  Future<List<dynamic>> cargarBD() async {
     try {
       conn = await Connection.open(
         //Si está ejecutando el servidor localmente y usando el emulador de Android,
@@ -49,6 +49,7 @@ class _MainPageState extends State<MainPage> {
       );
       comidasDisponibles.add(comida);
     }
+    return comidasDisponibles;
   }
 
   @override
@@ -69,79 +70,95 @@ class _MainPageState extends State<MainPage> {
         shadowColor: Colors.red,
         elevation: 8,
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // number of items in each row
-          mainAxisSpacing: 4.0, // espacio entre filas
-          crossAxisSpacing: 4.0, // espacio entre columnas
-          childAspectRatio: 0.65,
-        ),
-        padding: const EdgeInsets.all(8.0), // padding around the grid
-        itemCount: comidasDisponibles.length, // total number of items
-        itemBuilder: (context, index) {
-          return Container(
-            color: posicionElemento(index)
-                ? const Color.fromARGB(255, 40, 48, 53)
-                : const Color.fromARGB(255, 48, 58, 64), // color of grid items
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '\$ 2.33',
-                        style: GoogleFonts.bayon(
-                          textStyle: Theme.of(context).textTheme.displayLarge,
-                          fontSize: 18,
-                          //fontWeight: FontWeight.w700,
+      body: FutureBuilder(
+        future: cargarBD(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            List<dynamic> comidas = snapshot.data!;
+            print('LISTA  ${comidas[0]}');
+            return GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // number of items in each row
+                mainAxisSpacing: 4.0, // espacio entre filas
+                crossAxisSpacing: 4.0, // espacio entre columnas
+                childAspectRatio: 0.65,
+              ),
+              padding: const EdgeInsets.all(8.0), // padding around the grid
+              itemCount: comidas.length, // total number of items
+              itemBuilder: (context, index) {
+                return Container(
+                  color: posicionElemento(index)
+                      ? const Color.fromARGB(255, 40, 48, 53)
+                      : const Color.fromARGB(
+                          255, 48, 58, 64), // color of grid items
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '\$ 2.33',
+                              style: GoogleFonts.bayon(
+                                textStyle:
+                                    Theme.of(context).textTheme.displayLarge,
+                                fontSize: 18,
+                                //fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  comidas[index].isFavourite =
+                                      !comidas[index].isFavourite;
+                                });
+                              },
+                              icon: Icon(
+                                  comidas[index].isFavourite
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  color:
+                                      const Color.fromARGB(255, 180, 13, 35)),
+                            ),
+                          ],
                         ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            comidasDisponibles[index].isFavourite =
-                                !comidasDisponibles[index].isFavourite;
-                          });
-                        },
-                        icon: Icon(
-                            comidasDisponibles[index].isFavourite
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            color: const Color.fromARGB(255, 180, 13, 35)),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 8,
-                          offset: Offset(5, 5),
+                        Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black,
+                                blurRadius: 8,
+                                offset: Offset(5, 5),
+                              ),
+                            ],
+                          ),
+                          child: Image.network(comidas[index].imagenUrl),
+                        ),
+                        //SizedBox(height: 10),
+                        Text(
+                          'salmon al ajillo con patatas fritas y coca cola', //comidas[index]['nombre'],
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.bayon(
+                            textStyle: Theme.of(context).textTheme.displayLarge,
+                            fontSize: 18,
+                            //fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ],
                     ),
-                    child: Image.network(comidasDisponibles[index].imagenUrl),
                   ),
-                  //SizedBox(height: 10),
-                  Text(
-                    'salmon al ajillo con patatas fritas y coca cola', //comidasDisponibles[index].nombre,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.bayon(
-                      textStyle: Theme.of(context).textTheme.displayLarge,
-                      fontSize: 18,
-                      //fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
+                );
+              },
+            );
+          }
         },
       ),
     );
