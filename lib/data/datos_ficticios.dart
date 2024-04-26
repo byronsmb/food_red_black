@@ -33,7 +33,7 @@ import 'package:food_red_black/models/comida.dart';
         'Una reconfortante sopa de pescado con un caldo abundante y fragante, realzado con cebollas y especias que te transportarán a la costa.',
     isFavourite: false,
   ),
-  Comida(
+  Comida( https://i.imgur.com/taWVlyI.png
     imagenUrl: 'assets/images/pastel_cafe_caramelo.png',
     nombre: 'Pastel de Café y Caramelo',
     precio: 13.50,
@@ -41,7 +41,7 @@ import 'package:food_red_black/models/comida.dart';
         'Nuestra interpretación de la hamburguesa clásica, con una generosa porción de carne jugosa y una irresistible salsa barbacoa que deleitará tus sentidos.',
     isFavourite: false,
   ),
-  Comida(
+  Comida( https://i.imgur.com/W3cRDgF.png
     imagenUrl: 'assets/images/ensalada_pera_rucula.png',
     nombre: 'Ensalada de pera y rúcula.',
     precio: 15.00,
