@@ -17,6 +17,7 @@ class _MainPageState extends State<MainPage> {
   late Result resultados;
   final List comidasDisponibles = [];
   List<double> containerScales = [1.0, 1.0, 1.0];
+  int colorSelectindex = 1;
 
   Future<void> cargarBD() async {
     try {
@@ -89,6 +90,7 @@ class _MainPageState extends State<MainPage> {
                     setState(() {
                       // Establece el contenedor 1 a la escala más grande y los otros a su escala original.
                       containerScales = [1.2, 1.0, 1.0];
+                      colorSelectindex = 1;
                     });
                   },
                   child: AnimatedContainer(
@@ -101,7 +103,14 @@ class _MainPageState extends State<MainPage> {
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.amber,
                     ),
-                    child: Center(child: Text('sdcds')),
+                    child: Center(
+                        child: Text(
+                      'sdcds',
+                      style: TextStyle(
+                          color: colorSelectindex == 1
+                              ? Colors.black
+                              : Colors.red),
+                    )),
                     duration: Duration(milliseconds: 300),
                   ),
                 ),
@@ -112,6 +121,7 @@ class _MainPageState extends State<MainPage> {
                     setState(() {
                       // Establece el contenedor 2 a la escala más grande y los otros a su escala original.
                       containerScales = [1.0, 1.2, 1.0];
+                      colorSelectindex = 2;
                     });
                   },
                   child: Center(
@@ -137,6 +147,7 @@ class _MainPageState extends State<MainPage> {
                     setState(() {
                       // Establece el contenedor 3 a la escala más grande y los otros a su escala original.
                       containerScales = [1.0, 1.0, 1.2];
+                      colorSelectindex = 3;
                     });
                   },
                   child: AnimatedContainer(
