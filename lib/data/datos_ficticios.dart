@@ -57,7 +57,7 @@ import 'package:food_red_black/models/comida.dart';
         'Una opción saludable y llena de sabor, nuestra pechuga de pollo está cuidadosamente cocinada para mantener su jugosidad, acompañada de acompañamientos saludables.',
     isFavourite: false,
   ),
-  Comida( https://i.imgur.com/O6h4dj2.png
+  Comida( 
     imagenUrl: 'assets/images/frutos_rojos.png',
     nombre: 'Frutos rojos',
     precio: 12.00,

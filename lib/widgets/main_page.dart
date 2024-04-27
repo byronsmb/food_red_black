@@ -66,7 +66,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 53, 66, 73),
       appBar: AppBar(
@@ -135,7 +134,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                   //SizedBox(height: 10),
                   Text(
-                    'salmon al ajillo con patatas fritas y coca cola', //comidasDisponibles[index].nombre,
+                    comidasDisponibles[index].nombre,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.bayon(
