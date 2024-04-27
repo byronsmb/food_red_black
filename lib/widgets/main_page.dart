@@ -16,6 +16,8 @@ class _MainPageState extends State<MainPage> {
   late Connection conn;
   late Result resultados;
   final List comidasDisponibles = [];
+  List<double> containerScales = [1.0, 1.0, 1.0];
+
   Future<void> cargarBD() async {
     try {
       conn = await Connection.open(
@@ -62,8 +64,6 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  void cargarDatosBD() async {}
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,80 +74,166 @@ class _MainPageState extends State<MainPage> {
         shadowColor: Colors.red,
         elevation: 8,
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // number of items in each row
-          mainAxisSpacing: 4.0, // espacio entre filas
-          crossAxisSpacing: 4.0, // espacio entre columnas
-          childAspectRatio: 0.65,
-        ),
-        padding: const EdgeInsets.all(8.0), // padding around the grid
-        itemCount: comidasDisponibles.length, // total number of items
-        itemBuilder: (context, index) {
-          return Container(
-            color: posicionElemento(index)
-                ? const Color.fromARGB(255, 40, 48, 53)
-                : const Color.fromARGB(255, 48, 58, 64), // color of grid items
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '\$ ${comidasDisponibles[index].precio}',
-                        style: GoogleFonts.bayon(
-                          textStyle: Theme.of(context).textTheme.displayLarge,
-                          fontSize: 18,
-                          //fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            comidasDisponibles[index].isFavourite =
-                                !comidasDisponibles[index].isFavourite;
-                          });
-                        },
-                        icon: Icon(
-                            comidasDisponibles[index].isFavourite
-                                ? Icons.favorite
-                                : Icons.favorite_border,
-                            color: const Color.fromARGB(255, 180, 13, 35)),
-                      ),
-                    ],
+      body: Column(
+        children: [
+          /*SingleChildScrollView(
+            scrollDirection: Axis.horizontal,*/
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              // Contenedor 1
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    // Establece el contenedor 1 a la escala más grande y los otros a su escala original.
+                    containerScales = [1.5, 1.0, 1.0];
+                  });
+                },
+                child: AnimatedContainer(
+                  transform: Matrix4.diagonal3Values(
+                      containerScales[0], containerScales[0], 1.0),
+                  width: 120,
+                  height: 50,
+                  padding: const EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.amber,
                   ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 8,
-                          offset: Offset(5, 5),
+                  child: Center(child: Text('sdcds')),
+                  duration: Duration(milliseconds: 500),
+                ),
+              ),
+
+              // Contenedor 2
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    // Establece el contenedor 2 a la escala más grande y los otros a su escala original.
+                    containerScales = [1.0, 1.5, 1.0];
+                  });
+                },
+                child: AnimatedContainer(
+                  transform: Matrix4.diagonal3Values(
+                      containerScales[1], containerScales[1], 1.0),
+                  width: 120,
+                  height: 50,
+                  padding: const EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.amber,
+                  ),
+                  child: Center(child: Text('sdcds')),
+                  duration: Duration(milliseconds: 500),
+                ),
+              ),
+
+              // Contenedor 3
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    // Establece el contenedor 3 a la escala más grande y los otros a su escala original.
+                    containerScales = [1.0, 1.0, 1.5];
+                  });
+                },
+                child: AnimatedContainer(
+                  transform: Matrix4.diagonal3Values(
+                      containerScales[2], containerScales[2], 1.0),
+                  width: 120,
+                  height: 50,
+                  padding: const EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.amber,
+                  ),
+                  child: Center(child: Text('sdcds')),
+                  duration: Duration(milliseconds: 500),
+                ),
+              ),
+            ],
+          ),
+          /* ),*/
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // number of items in each row
+                mainAxisSpacing: 4.0, // espacio entre filas
+                crossAxisSpacing: 4.0, // espacio entre columnas
+                childAspectRatio: 0.65,
+              ),
+              padding: const EdgeInsets.all(8.0), // padding around the grid
+              itemCount: comidasDisponibles.length, // total number of items
+              itemBuilder: (context, index) {
+                return Container(
+                  color: posicionElemento(index)
+                      ? const Color.fromARGB(255, 40, 48, 53)
+                      : const Color.fromARGB(
+                          255, 48, 58, 64), // color of grid items
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '\$ ${comidasDisponibles[index].precio}',
+                              style: GoogleFonts.bayon(
+                                textStyle:
+                                    Theme.of(context).textTheme.displayLarge,
+                                fontSize: 18,
+                                //fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  comidasDisponibles[index].isFavourite =
+                                      !comidasDisponibles[index].isFavourite;
+                                });
+                              },
+                              icon: Icon(
+                                  comidasDisponibles[index].isFavourite
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  color:
+                                      const Color.fromARGB(255, 180, 13, 35)),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black,
+                                blurRadius: 8,
+                                offset: Offset(5, 5),
+                              ),
+                            ],
+                          ),
+                          child: Image.network(
+                              comidasDisponibles[index].imagenUrl),
+                        ),
+                        //SizedBox(height: 10),
+                        Text(
+                          comidasDisponibles[index].nombre,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.bayon(
+                            textStyle: Theme.of(context).textTheme.displayLarge,
+                            fontSize: 18,
+                            //fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ],
                     ),
-                    child: Image.network(comidasDisponibles[index].imagenUrl),
                   ),
-                  //SizedBox(height: 10),
-                  Text(
-                    comidasDisponibles[index].nombre,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.bayon(
-                      textStyle: Theme.of(context).textTheme.displayLarge,
-                      fontSize: 18,
-                      //fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
-              ),
+                );
+              },
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
