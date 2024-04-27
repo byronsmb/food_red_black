@@ -44,7 +44,7 @@ class _MainPageState extends State<MainPage> {
           isFavourite: bool.parse(fila[7].toString()),
         );
         comidasDisponibles.add(comida);
-        print('cargando ${comidasDisponibles.length}');
+        //print('cargando ${comidasDisponibles.length}');
       }
     } catch (e) {
       print('Error al cargar BD: ${e.toString()}');
@@ -97,7 +97,7 @@ class _MainPageState extends State<MainPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$ 2.33',
+                        '\$ ${comidasDisponibles[index].precio}',
                         style: GoogleFonts.bayon(
                           textStyle: Theme.of(context).textTheme.displayLarge,
                           fontSize: 18,
