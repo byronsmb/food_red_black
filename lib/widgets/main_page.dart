@@ -88,7 +88,7 @@ class _MainPageState extends State<MainPage> {
                   onTap: () {
                     setState(() {
                       // Establece el contenedor 1 a la escala más grande y los otros a su escala original.
-                      containerScales = [1.3, 1.0, 1.0];
+                      containerScales = [1.2, 1.0, 1.0];
                     });
                   },
                   child: AnimatedContainer(
@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.amber,
                     ),
                     child: Center(child: Text('sdcds')),
-                    duration: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 300),
                   ),
                 ),
 
@@ -111,21 +111,23 @@ class _MainPageState extends State<MainPage> {
                   onTap: () {
                     setState(() {
                       // Establece el contenedor 2 a la escala más grande y los otros a su escala original.
-                      containerScales = [1.0, 1.3, 1.0];
+                      containerScales = [1.0, 1.2, 1.0];
                     });
                   },
-                  child: AnimatedContainer(
-                    transform: Matrix4.diagonal3Values(
-                        containerScales[1], containerScales[1], 1.0),
-                    width: 120,
-                    height: 50,
-                    padding: const EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.amber,
+                  child: Center(
+                    child: AnimatedContainer(
+                      transform: Matrix4.diagonal3Values(
+                          containerScales[1], containerScales[1], 1.0),
+                      width: 120,
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.amber,
+                      ),
+                      child: Center(child: Text('sdcds')),
+                      duration: Duration(milliseconds: 300),
                     ),
-                    child: Center(child: Text('sdcds')),
-                    duration: Duration(milliseconds: 500),
                   ),
                 ),
 
@@ -134,7 +136,7 @@ class _MainPageState extends State<MainPage> {
                   onTap: () {
                     setState(() {
                       // Establece el contenedor 3 a la escala más grande y los otros a su escala original.
-                      containerScales = [1.0, 1.0, 1.3];
+                      containerScales = [1.0, 1.0, 1.2];
                     });
                   },
                   child: AnimatedContainer(
@@ -148,7 +150,7 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.amber,
                     ),
                     child: Center(child: Text('sdcds')),
-                    duration: Duration(milliseconds: 500),
+                    duration: Duration(milliseconds: 300),
                   ),
                 ),
               ],
