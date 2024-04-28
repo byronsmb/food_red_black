@@ -99,13 +99,15 @@ class _MainPageState extends State<MainPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color.fromARGB(255, 45, 54, 59),
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
                           color: Color.fromARGB(
                               216, 39, 39, 39), // Color de la sombra
                           spreadRadius: 3, // Radio de expansión de la sombra
                           blurRadius: 7, // Radio de desenfoque de la sombra
-                          offset: Offset(3, 3), // Desplazamiento de la sombra
+                          offset: containerScales[1]
+                              ? const Offset(3, 3)
+                              : const Offset(1, 1),
                         ),
                       ],
                     ),
@@ -148,8 +150,9 @@ class _MainPageState extends State<MainPage> {
                               216, 39, 39, 39), // Color de la sombra
                           spreadRadius: 3, // Radio de expansión de la sombra
                           blurRadius: 7, // Radio de desenfoque de la sombra
-                          offset:
-                              containerScales[1] ? Offset(3, 3) : Offset(1, 1),
+                          offset: containerScales[1]
+                              ? const Offset(3, 3)
+                              : const Offset(1, 1),
                         ),
                       ],
                     ),
@@ -187,13 +190,15 @@ class _MainPageState extends State<MainPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color.fromARGB(255, 45, 54, 59),
-                      boxShadow: const [
+                      boxShadow: [
                         BoxShadow(
                           color: Color.fromARGB(
                               216, 39, 39, 39), // Color de la sombra
                           spreadRadius: 3, // Radio de expansión de la sombra
                           blurRadius: 7, // Radio de desenfoque de la sombra
-                          offset: Offset(3, 3), // Desplazamiento de la sombra
+                          offset: containerScales[2]
+                              ? const Offset(3, 3)
+                              : const Offset(1, 1),
                         ),
                       ],
                     ),
