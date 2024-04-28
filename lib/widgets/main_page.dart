@@ -141,84 +141,34 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
 
-                /*GestureDetector(
+// Contenedor 3
+                GestureDetector(
                   onTap: () {
                     setState(() {
-                      // Establece el contenedor 1 a la escala más grande y los otros a su escala original.
-                      containerScales = [1.2, 1.0, 1.0];
-                      colorSelectindex = 1;
+                      containerScales = [false, false, true];
                     });
                   },
                   child: AnimatedContainer(
-                    transform: Matrix4.diagonal3Values(                        containerScales[0], containerScales[0], 1.0),
-                    width: 120,
-                    height: 50,
-                    padding: const EdgeInsets.only(left: 20),
+                    duration: Duration(milliseconds: 300),
+                    width: containerScales[2] ? 140 : 120,
+                    height: containerScales[2] ? 60 : 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.amber,
                     ),
+                    //color: Colors.grey, // Color de fondo
+                    curve: Curves.easeInOut, // Curva de la animación
                     child: Center(
+                      child: Transform.scale(
+                        scale: containerScales[2] ? 1.1 : 1.0,
                         child: Text(
-                      'sdcds',
-                      style: TextStyle(
-                          color: colorSelectindex == 1
-                              ? Color.fromARGB(255, 199, 41, 49)
-                              : Colors.white),
-                    )),
-                    duration: const Duration(milliseconds: 300),
-                  ),
-                ),*/
-
-                // Contenedor 2
-                /*GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      // Establece el contenedor 2 a la escala más grande y los otros a su escala original.
-                      containerScales = [1.0, 1.2, 1.0];
-                      colorSelectindex = 2;
-                    });
-                  },
-                  child: Center(
-                    child: AnimatedContainer(
-                      transform: Matrix4.diagonal3Values(
-                          containerScales[1], containerScales[1], 1.0),
-                      width: 120,
-                      height: 50,
-                      padding: const EdgeInsets.only(left: 20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.amber,
+                          'Clic para escalar',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
-                      child: Center(child: Text('sdcds')),
-                      duration: const Duration(milliseconds: 300),
                     ),
                   ),
-                ),*/
-
-                // Contenedor 3
-                /*GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      // Establece el contenedor 3 a la escala más grande y los otros a su escala original.
-                      containerScales = [1.0, 1.0, 1.2];
-                      colorSelectindex = 3;
-                    });
-                  },
-                  child: AnimatedContainer(
-                    transform: Matrix4.diagonal3Values(
-                        containerScales[2], containerScales[2], 1.0),
-                    width: 120,
-                    height: 50,
-                    padding: const EdgeInsets.only(left: 20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.amber,
-                    ),
-                    child: Center(child: Text('sdcds')),
-                    duration: const Duration(milliseconds: 300),
-                  ),
-                ),*/
+                ),
               ],
             ),
           ),
