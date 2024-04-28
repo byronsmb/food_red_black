@@ -157,7 +157,11 @@ class _MainPageState extends State<MainPage> {
                         scale: containerScales[1] ? 1.1 : 1.0,
                         child: Text(
                           'Temporada',
-                          style: TextStyle(color: Colors.white),
+                          style: GoogleFonts.bayon(
+                            textStyle: Theme.of(context).textTheme.displayLarge,
+                            fontSize: 18,
+                            //fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ),
