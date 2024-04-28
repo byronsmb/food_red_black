@@ -16,8 +16,10 @@ class _MainPageState extends State<MainPage> {
   late Connection conn;
   late Result resultados;
   final List comidasDisponibles = [];
-  List<double> containerScales = [1.0, 1.0, 1.0];
+  List<bool> containerScales = [false, false, false];
   int colorSelectindex = 1;
+  double tabWidth = 120;
+  double tabHeight = 50;
 
   Future<void> cargarBD() async {
     try {
@@ -65,6 +67,7 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  bool _ampliado = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,8 +85,63 @@ class _MainPageState extends State<MainPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      containerScales = [true, false, false];
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    width: containerScales[0] ? 140 : 120,
+                    height: containerScales[0] ? 60 : 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.amber,
+                    ),
+                    //color: Colors.grey, // Color de fondo
+                    curve: Curves.easeInOut, // Curva de la animación
+                    child: Center(
+                      child: Transform.scale(
+                        scale: containerScales[0] ? 1.1 : 1.0,
+                        child: Text(
+                          'Clic para escalar',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ), //
                 // Contenedor 1
                 GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      containerScales = [false, true, false];
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    width: containerScales[1] ? 140 : 120,
+                    height: containerScales[1] ? 60 : 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.amber,
+                    ),
+                    //color: Colors.grey, // Color de fondo
+                    curve: Curves.easeInOut, // Curva de la animación
+                    child: Center(
+                      child: Transform.scale(
+                        scale: containerScales[1] ? 1.1 : 1.0,
+                        child: Text(
+                          'Clic para escalar',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                /*GestureDetector(
                   onTap: () {
                     setState(() {
                       // Establece el contenedor 1 a la escala más grande y los otros a su escala original.
@@ -92,8 +150,7 @@ class _MainPageState extends State<MainPage> {
                     });
                   },
                   child: AnimatedContainer(
-                    transform: Matrix4.diagonal3Values(
-                        containerScales[0], containerScales[0], 1.0),
+                    transform: Matrix4.diagonal3Values(                        containerScales[0], containerScales[0], 1.0),
                     width: 120,
                     height: 50,
                     padding: const EdgeInsets.only(left: 20),
@@ -106,15 +163,15 @@ class _MainPageState extends State<MainPage> {
                       'sdcds',
                       style: TextStyle(
                           color: colorSelectindex == 1
-                              ? Colors.black
-                              : Colors.red),
+                              ? Color.fromARGB(255, 199, 41, 49)
+                              : Colors.white),
                     )),
                     duration: const Duration(milliseconds: 300),
                   ),
-                ),
+                ),*/
 
                 // Contenedor 2
-                GestureDetector(
+                /*GestureDetector(
                   onTap: () {
                     setState(() {
                       // Establece el contenedor 2 a la escala más grande y los otros a su escala original.
@@ -137,10 +194,10 @@ class _MainPageState extends State<MainPage> {
                       duration: const Duration(milliseconds: 300),
                     ),
                   ),
-                ),
+                ),*/
 
                 // Contenedor 3
-                GestureDetector(
+                /*GestureDetector(
                   onTap: () {
                     setState(() {
                       // Establece el contenedor 3 a la escala más grande y los otros a su escala original.
@@ -161,7 +218,7 @@ class _MainPageState extends State<MainPage> {
                     child: Center(child: Text('sdcds')),
                     duration: const Duration(milliseconds: 300),
                   ),
-                ),
+                ),*/
               ],
             ),
           ),
