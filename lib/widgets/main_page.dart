@@ -85,6 +85,7 @@ class _MainPageState extends State<MainPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                //contenedor 1
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -93,7 +94,7 @@ class _MainPageState extends State<MainPage> {
                   },
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 300),
-                    width: containerScales[0] ? 140 : 120,
+                    width: containerScales[0] ? 148 : 120,
                     height: containerScales[0] ? 60 : 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
@@ -112,7 +113,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                 ), //
-                // Contenedor 1
+                // Contenedor 2
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -121,7 +122,7 @@ class _MainPageState extends State<MainPage> {
                   },
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 300),
-                    width: containerScales[1] ? 140 : 120,
+                    width: containerScales[1] ? 148 : 120,
                     height: containerScales[1] ? 60 : 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
@@ -150,7 +151,7 @@ class _MainPageState extends State<MainPage> {
                   },
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 300),
-                    width: containerScales[2] ? 140 : 120,
+                    width: containerScales[2] ? 148 : 120,
                     height: containerScales[2] ? 60 : 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
