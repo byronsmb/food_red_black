@@ -119,7 +119,6 @@ class _MainPageState extends State<MainPage> {
                           style: GoogleFonts.bayon(
                             textStyle: Theme.of(context).textTheme.displayLarge,
                             fontSize: 18,
-                            //fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
@@ -160,7 +159,6 @@ class _MainPageState extends State<MainPage> {
                           style: GoogleFonts.bayon(
                             textStyle: Theme.of(context).textTheme.displayLarge,
                             fontSize: 18,
-                            //fontWeight: FontWeight.w700,
                           ),
                         ),
                       ),
@@ -199,7 +197,10 @@ class _MainPageState extends State<MainPage> {
                         scale: containerScales[2] ? 1.1 : 1.0,
                         child: Text(
                           'Popular',
-                          style: TextStyle(color: Colors.white),
+                          style: GoogleFonts.bayon(
+                            textStyle: Theme.of(context).textTheme.displayLarge,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
