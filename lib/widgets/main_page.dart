@@ -156,7 +156,7 @@ class _MainPageState extends State<MainPage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color.fromARGB(255, 45, 54, 59),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Color.fromARGB(
                               216, 39, 39, 39), // Color de la sombra
