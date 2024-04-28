@@ -160,9 +160,12 @@ class _MainPageState extends State<MainPage> {
                         child: Text(
                           'Temporada',
                           style: GoogleFonts.bayon(
-                            textStyle: Theme.of(context).textTheme.displayLarge,
-                            fontSize: 18,
-                          ),
+                              textStyle:
+                                  Theme.of(context).textTheme.displayLarge,
+                              fontSize: 18,
+                              color: containerScales[0]
+                                  ? Color.fromARGB(255, 199, 41, 49)
+                                  : Colors.white),
                         ),
                       ),
                     ),
@@ -201,9 +204,12 @@ class _MainPageState extends State<MainPage> {
                         child: Text(
                           'Popular',
                           style: GoogleFonts.bayon(
-                            textStyle: Theme.of(context).textTheme.displayLarge,
-                            fontSize: 18,
-                          ),
+                              textStyle:
+                                  Theme.of(context).textTheme.displayLarge,
+                              fontSize: 18,
+                              color: containerScales[0]
+                                  ? Color.fromARGB(255, 199, 41, 49)
+                                  : Colors.white),
                         ),
                       ),
                     ),
