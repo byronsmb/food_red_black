@@ -161,7 +161,7 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.amber,
                     ),
                     child: Center(child: Text('sdcds')),
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                   ),
                 ),
               ],
