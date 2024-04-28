@@ -111,7 +111,7 @@ class _MainPageState extends State<MainPage> {
                               ? Colors.black
                               : Colors.red),
                     )),
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                   ),
                 ),
 
