@@ -77,8 +77,6 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Column(
         children: [
-          /*SingleChildScrollView(
-            scrollDirection: Axis.horizontal,*/
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Row(
