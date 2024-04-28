@@ -93,7 +93,7 @@ class _MainPageState extends State<MainPage> {
                     });
                   },
                   child: AnimatedContainer(
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     width: containerScales[0] ? 148 : 120,
                     height: containerScales[0] ? 60 : 50,
                     decoration: BoxDecoration(
@@ -121,7 +121,7 @@ class _MainPageState extends State<MainPage> {
                     });
                   },
                   child: AnimatedContainer(
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     width: containerScales[1] ? 148 : 120,
                     height: containerScales[1] ? 60 : 50,
                     decoration: BoxDecoration(
@@ -150,7 +150,7 @@ class _MainPageState extends State<MainPage> {
                     });
                   },
                   child: AnimatedContainer(
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     width: containerScales[2] ? 148 : 120,
                     height: containerScales[2] ? 60 : 50,
                     decoration: BoxDecoration(
