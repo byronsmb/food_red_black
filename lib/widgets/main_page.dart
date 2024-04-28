@@ -142,7 +142,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
 
-// Contenedor 3
+                // Contenedor 3
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -155,7 +155,16 @@ class _MainPageState extends State<MainPage> {
                     height: containerScales[2] ? 60 : 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.amber,
+                      color: const Color.fromARGB(255, 45, 54, 59),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(
+                              216, 39, 39, 39), // Color de la sombra
+                          spreadRadius: 3, // Radio de expansión de la sombra
+                          blurRadius: 7, // Radio de desenfoque de la sombra
+                          offset: Offset(3, 3), // Desplazamiento de la sombra
+                        ),
+                      ],
                     ),
                     //color: Colors.grey, // Color de fondo
                     curve: Curves.easeInOut, // Curva de la animación
@@ -163,7 +172,7 @@ class _MainPageState extends State<MainPage> {
                       child: Transform.scale(
                         scale: containerScales[2] ? 1.1 : 1.0,
                         child: Text(
-                          'Clic para escalar',
+                          'Popular',
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
