@@ -147,7 +147,7 @@ class _MainPageState extends State<MainPage> {
                       color: const Color.fromARGB(255, 45, 54, 59),
                       boxShadow: [
                         BoxShadow(
-                          color: Color.fromARGB(
+                          color: const Color.fromARGB(
                               216, 39, 39, 39), // Color de la sombra
                           spreadRadius: 3, // Radio de expansión de la sombra
                           blurRadius: 7, // Radio de desenfoque de la sombra
