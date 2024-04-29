@@ -48,7 +48,7 @@ class _detalleComidaState extends State<detalleComida>
                           .red, //Color.fromARGB(216, 39, 39, 39), // Color de la sombra
                       spreadRadius: 3, // Radio de expansión de la sombra
                       blurRadius: 7, // Radio de desenfoque de la sombra
-                      offset: const Offset(3, 3),
+                      offset: Offset(3, 3),
                     ),
                   ],
                 ),
