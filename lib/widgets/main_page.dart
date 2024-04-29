@@ -124,7 +124,7 @@ class _MainPageState extends State<MainPage> {
                                   Theme.of(context).textTheme.displayLarge,
                               fontSize: 18,
                               color: containerScales[0]
-                                  ? Color.fromARGB(255, 199, 41, 49)
+                                  ? const Color.fromARGB(255, 199, 41, 49)
                                   : Colors.white),
                         ),
                       ),
