@@ -39,9 +39,9 @@ class _detalleComidaState extends State<detalleComida>
           child: Hero(
             tag: widget.comida.id,
             child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color.fromARGB(255, 45, 54, 59),
+                  color: Color.fromARGB(255, 45, 54, 59),
                   boxShadow: [
                     BoxShadow(
                       color: Colors
