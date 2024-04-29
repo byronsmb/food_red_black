@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:food_red_black/data/datos_ficticios.dart';
 import 'package:food_red_black/models/comida.dart';
+import 'package:food_red_black/screens/detalle_comida.dart';
 
 import 'package:postgres/postgres.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -101,7 +102,7 @@ class _MainPageState extends State<MainPage> {
                       color: const Color.fromARGB(255, 45, 54, 59),
                       boxShadow: [
                         BoxShadow(
-                          color: Color.fromARGB(
+                          color: const Color.fromARGB(
                               216, 39, 39, 39), // Color de la sombra
                           spreadRadius: 3, // Radio de expansión de la sombra
                           blurRadius: 7, // Radio de desenfoque de la sombra
@@ -192,7 +193,7 @@ class _MainPageState extends State<MainPage> {
                       color: const Color.fromARGB(255, 45, 54, 59),
                       boxShadow: [
                         BoxShadow(
-                          color: Color.fromARGB(
+                          color: const Color.fromARGB(
                               216, 39, 39, 39), // Color de la sombra
                           spreadRadius: 3, // Radio de expansión de la sombra
                           blurRadius: 7, // Radio de desenfoque de la sombra
@@ -236,70 +237,85 @@ class _MainPageState extends State<MainPage> {
               padding: const EdgeInsets.all(8.0), // padding around the grid
               itemCount: comidasDisponibles.length, // total number of items
               itemBuilder: (context, index) {
-                return Container(
-                  color: posicionElemento(index)
-                      ? const Color.fromARGB(255, 40, 48, 53)
-                      : const Color.fromARGB(
-                          255, 48, 58, 64), // color of grid items
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              '\$ ${comidasDisponibles[index].precio}',
-                              style: GoogleFonts.bayon(
-                                textStyle:
-                                    Theme.of(context).textTheme.displayLarge,
-                                fontSize: 18,
-                                //fontWeight: FontWeight.w700,
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => detalleComida(
+                            comida: comidasDisponibles[index],
+                          ),
+                        ));
+                  },
+                  child: Container(
+                    color: posicionElemento(index)
+                        ? const Color.fromARGB(255, 40, 48, 53)
+                        : const Color.fromARGB(
+                            255, 48, 58, 64), // color of grid items
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 14),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '\$ ${comidasDisponibles[index].precio}',
+                                style: GoogleFonts.bayon(
+                                  textStyle:
+                                      Theme.of(context).textTheme.displayLarge,
+                                  fontSize: 18,
+                                  //fontWeight: FontWeight.w700,
+                                ),
                               ),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  comidasDisponibles[index].isFavourite =
-                                      !comidasDisponibles[index].isFavourite;
-                                });
-                              },
-                              icon: Icon(
-                                  comidasDisponibles[index].isFavourite
-                                      ? Icons.favorite
-                                      : Icons.favorite_border,
-                                  color:
-                                      const Color.fromARGB(255, 180, 13, 35)),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black,
-                                blurRadius: 8,
-                                offset: Offset(5, 5),
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    comidasDisponibles[index].isFavourite =
+                                        !comidasDisponibles[index].isFavourite;
+                                  });
+                                },
+                                icon: Icon(
+                                    comidasDisponibles[index].isFavourite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color:
+                                        const Color.fromARGB(255, 180, 13, 35)),
                               ),
                             ],
                           ),
-                          child: Image.network(
-                              comidasDisponibles[index].imagenUrl),
-                        ),
-                        //SizedBox(height: 10),
-                        Text(
-                          comidasDisponibles[index].nombre,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.bayon(
-                            textStyle: Theme.of(context).textTheme.displayLarge,
-                            fontSize: 18,
-                            //fontWeight: FontWeight.w700,
+                          Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black,
+                                  blurRadius: 8,
+                                  offset: Offset(5, 5),
+                                ),
+                              ],
+                            ),
+                            child: Hero(
+                              tag: comidasDisponibles[index].id,
+                              child: Image.network(
+                                  comidasDisponibles[index].imagenUrl),
+                            ),
                           ),
-                        ),
-                      ],
+                          //SizedBox(height: 10),
+                          Text(
+                            comidasDisponibles[index].nombre,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.bayon(
+                              textStyle:
+                                  Theme.of(context).textTheme.displayLarge,
+                              fontSize: 18,
+                              //fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
