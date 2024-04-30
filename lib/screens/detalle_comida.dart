@@ -40,8 +40,14 @@ class _detalleComidaState extends State<detalleComida>
             Navigator.pop(context);
           },
           child: Container(
-            color: const Color.fromARGB(255, 45, 54, 59),
-            child: const Icon(Icons.arrow_back),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Color.fromARGB(255, 41, 50, 54),
+            ),
+            child: const Icon(
+              Icons.arrow_back,
+              color: Color.fromARGB(255, 180, 13, 35),
+            ),
           ),
         ),
         /*IconButton(
