@@ -32,6 +32,7 @@ class _detalleComidaState extends State<detalleComida>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 49, 66, 74),
       appBar: AppBar(),
       body: Center(
         child: RotationTransition(
@@ -44,11 +45,11 @@ class _detalleComidaState extends State<detalleComida>
                   color: Color.fromARGB(255, 45, 54, 59),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors
-                          .red, //Color.fromARGB(216, 39, 39, 39), // Color de la sombra
-                      spreadRadius: 3, // Radio de expansión de la sombra
-                      blurRadius: 7, // Radio de desenfoque de la sombra
-                      offset: Offset(3, 3),
+                      color: Color.fromARGB(221, 19, 18,
+                          18), //Color.fromARGB(214, 17, 17, 17), // Color de la sombra
+                      spreadRadius: 5, // Radio de expansión de la sombra
+                      blurRadius: 40, // Radio de desenfoque de la sombra
+                      offset: Offset(6, 6),
                     ),
                   ],
                 ),
