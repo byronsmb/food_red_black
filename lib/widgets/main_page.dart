@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:food_red_black/data/datos_ficticios.dart';
 import 'package:food_red_black/models/comida.dart';
 import 'package:food_red_black/screens/detalle_comida.dart';
+import 'package:food_red_black/widgets/my_navigation_tab.dart';
 
 import 'package:postgres/postgres.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,10 +18,9 @@ class _MainPageState extends State<MainPage> {
   late Connection conn;
   late Result resultados;
   final List comidasDisponibles = [];
-  List<bool> containerScales = [false, false, false];
-  int colorSelectindex = 1;
   double tabWidth = 120;
   double tabHeight = 50;
+  int _selectedIndex = 0;
 
   Future<void> cargarBD() async {
     try {
@@ -86,141 +86,32 @@ class _MainPageState extends State<MainPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                //contenedor 1
-                GestureDetector(
+                MyNavigationTab(
+                  title: 'Nuevo',
+                  isSelected: _selectedIndex == 0,
                   onTap: () {
                     setState(() {
-                      containerScales = [true, false, false];
+                      _selectedIndex = 0;
                     });
                   },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    width: containerScales[0] ? 148 : 120,
-                    height: containerScales[0] ? 60 : 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color.fromARGB(255, 45, 54, 59),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(
-                              216, 39, 39, 39), // Color de la sombra
-                          spreadRadius: 3, // Radio de expansión de la sombra
-                          blurRadius: 7, // Radio de desenfoque de la sombra
-                          offset: containerScales[1]
-                              ? const Offset(3, 3)
-                              : const Offset(1, 1),
-                        ),
-                      ],
-                    ),
-                    //color: Colors.grey, // Color de fondo
-                    curve: Curves.easeInOut, // Curva de la animación
-                    child: Center(
-                      child: Transform.scale(
-                        scale: containerScales[0] ? 1.1 : 1.0,
-                        child: Text(
-                          'Nuevo',
-                          style: GoogleFonts.bayon(
-                              textStyle:
-                                  Theme.of(context).textTheme.displayLarge,
-                              fontSize: 18,
-                              color: containerScales[0]
-                                  ? const Color.fromARGB(255, 199, 41, 49)
-                                  : Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ), //
-                // Contenedor 2
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      containerScales = [false, true, false];
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    width: containerScales[1] ? 148 : 120,
-                    height: containerScales[1] ? 60 : 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color.fromARGB(255, 45, 54, 59),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(
-                              216, 39, 39, 39), // Color de la sombra
-                          spreadRadius: 3, // Radio de expansión de la sombra
-                          blurRadius: 7, // Radio de desenfoque de la sombra
-                          offset: containerScales[1]
-                              ? const Offset(3, 3)
-                              : const Offset(1, 1),
-                        ),
-                      ],
-                    ),
-                    //color: Colors.grey, // Color de fondo
-                    curve: Curves.easeInOut, // Curva de la animación
-                    child: Center(
-                      child: Transform.scale(
-                        scale: containerScales[1] ? 1.1 : 1.0,
-                        child: Text(
-                          'Temporada',
-                          style: GoogleFonts.bayon(
-                              textStyle:
-                                  Theme.of(context).textTheme.displayLarge,
-                              fontSize: 18,
-                              color: containerScales[1]
-                                  ? const Color.fromARGB(255, 199, 41, 49)
-                                  : Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
                 ),
-
-                // Contenedor 3
-                GestureDetector(
+                MyNavigationTab(
+                  title: 'Temporada',
+                  isSelected: _selectedIndex == 1,
                   onTap: () {
                     setState(() {
-                      containerScales = [false, false, true];
+                      _selectedIndex = 1;
                     });
                   },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    width: containerScales[2] ? 148 : 120,
-                    height: containerScales[2] ? 60 : 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color.fromARGB(255, 45, 54, 59),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(
-                              216, 39, 39, 39), // Color de la sombra
-                          spreadRadius: 3, // Radio de expansión de la sombra
-                          blurRadius: 7, // Radio de desenfoque de la sombra
-                          offset: containerScales[2]
-                              ? const Offset(3, 3)
-                              : const Offset(1, 1),
-                        ),
-                      ],
-                    ),
-                    //color: Colors.grey, // Color de fondo
-                    curve: Curves.easeInOut, // Curva de la animación
-                    child: Center(
-                      child: Transform.scale(
-                        scale: containerScales[2] ? 1.1 : 1.0,
-                        child: Text(
-                          'Popular',
-                          style: GoogleFonts.bayon(
-                              textStyle:
-                                  Theme.of(context).textTheme.displayLarge,
-                              fontSize: 18,
-                              color: containerScales[2]
-                                  ? Color.fromARGB(255, 199, 41, 49)
-                                  : Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
+                ),
+                MyNavigationTab(
+                  title: 'Popular',
+                  isSelected: _selectedIndex == 2,
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 2;
+                    });
+                  },
                 ),
               ],
             ),
