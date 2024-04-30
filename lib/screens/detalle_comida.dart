@@ -35,7 +35,20 @@ class _detalleComidaState extends State<detalleComida>
       backgroundColor: Color.fromARGB(255, 49, 66, 74),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 49, 66, 74),
-        leading: Icon(Icons.account_circle_rounded),
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            color: Color.fromARGB(255, 45, 54, 59),
+            child: Icon(Icons.arrow_back),
+          ),
+        ),
+        /*IconButton(
+            onPressed: () {},
+            color: Colors.red,
+            sha
+            icon: Icon(Icons.arrow_back)),*/ //Icon(Icons.account_circle_rounded),
         actions: [
           Icon(Icons.more_vert),
         ],
