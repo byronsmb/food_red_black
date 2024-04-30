@@ -33,27 +33,36 @@ class _detalleComidaState extends State<detalleComida>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 49, 66, 74),
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 49, 66, 74),
+        leading: Icon(Icons.account_circle_rounded),
+        actions: [
+          Icon(Icons.more_vert),
+        ],
+      ),
       body: Center(
         child: RotationTransition(
           turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
           child: Hero(
             tag: widget.comida.id,
-            child: Container(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color.fromARGB(255, 45, 54, 59),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromARGB(221, 19, 18,
-                          18), //Color.fromARGB(214, 17, 17, 17), // Color de la sombra
-                      spreadRadius: 5, // Radio de expansión de la sombra
-                      blurRadius: 40, // Radio de desenfoque de la sombra
-                      offset: Offset(6, 6),
-                    ),
-                  ],
-                ),
-                child: Image.network(widget.comida.imagenUrl)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 45, 54, 59),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors
+                            .black, //Color.fromARGB(214, 17, 17, 17), // Color de la sombra
+                        spreadRadius: 5, // Radio de expansión de la sombra
+                        blurRadius: 30, // Radio de desenfoque de la sombra
+                        offset: Offset(6, 6),
+                      ),
+                    ],
+                  ),
+                  child: Image.network(widget.comida.imagenUrl)),
+            ),
           ),
         ), //Image.network(comida.imagenUrl),
       ),
