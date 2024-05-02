@@ -35,18 +35,22 @@ class _detalleComidaState extends State<detalleComida>
       backgroundColor: Color.fromARGB(255, 49, 66, 74),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 49, 66, 74),
+        leadingWidth: 80,
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);
           },
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Color.fromARGB(255, 41, 50, 54),
-            ),
-            child: const Icon(
-              Icons.arrow_back,
-              color: Color.fromARGB(255, 180, 13, 35),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: const Color.fromARGB(255, 41, 50, 54),
+              ),
+              child: const Icon(
+                Icons.arrow_back_outlined,
+                color: Color.fromARGB(255, 180, 13, 35),
+              ),
             ),
           ),
         ),
@@ -56,7 +60,22 @@ class _detalleComidaState extends State<detalleComida>
             sha
             icon: Icon(Icons.arrow_back)),*/ //Icon(Icons.account_circle_rounded),
         actions: [
-          Icon(Icons.more_vert),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: const Color.fromARGB(255, 41, 50, 54),
+              ),
+              child: const Icon(
+                Icons.more_vert,
+                size: 33,
+                color: Color.fromARGB(255, 180, 13, 35),
+              ),
+            ),
+          ),
         ],
       ),
       body: Center(
