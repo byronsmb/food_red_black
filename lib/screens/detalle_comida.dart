@@ -32,9 +32,9 @@ class _detalleComidaState extends State<detalleComida>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 49, 66, 74),
+      backgroundColor: const Color.fromARGB(255, 49, 66, 74),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 49, 66, 74),
+        backgroundColor: const Color.fromARGB(255, 49, 66, 74),
         leadingWidth: 80,
         leading: InkWell(
           onTap: () {
