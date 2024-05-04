@@ -91,8 +91,7 @@ class _detalleComidaState extends State<detalleComida>
                     color: Color.fromARGB(255, 45, 54, 59),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors
-                            .black, //Color.fromARGB(214, 17, 17, 17), // Color de la sombra
+                        color: Colors.black, // Color de la sombra
                         spreadRadius: 5, // Radio de expansión de la sombra
                         blurRadius: 30, // Radio de desenfoque de la sombra
                         offset: Offset(6, 6),
@@ -102,7 +101,7 @@ class _detalleComidaState extends State<detalleComida>
                   child: Image.network(widget.comida.imagenUrl)),
             ),
           ),
-        ), //Image.network(comida.imagenUrl),
+        ),
       ),
     );
   }
