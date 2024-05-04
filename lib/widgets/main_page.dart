@@ -156,7 +156,6 @@ class _MainPageState extends State<MainPage> {
                                   textStyle:
                                       Theme.of(context).textTheme.displayLarge,
                                   fontSize: 18,
-                                  //fontWeight: FontWeight.w700,
                                 ),
                               ),
                               IconButton(
@@ -201,7 +200,6 @@ class _MainPageState extends State<MainPage> {
                               textStyle:
                                   Theme.of(context).textTheme.displayLarge,
                               fontSize: 18,
-                              //fontWeight: FontWeight.w700,
                             ),
                           ),
                         ],
