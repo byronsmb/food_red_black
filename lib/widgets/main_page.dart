@@ -120,7 +120,7 @@ class _MainPageState extends State<MainPage> {
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // number of items in each row
+                crossAxisCount: 2, // number row
                 mainAxisSpacing: 4.0, // espacio entre filas
                 crossAxisSpacing: 4.0, // espacio entre columnas
                 childAspectRatio: 0.65,
@@ -141,8 +141,7 @@ class _MainPageState extends State<MainPage> {
                   child: Container(
                     color: posicionElemento(index)
                         ? const Color.fromARGB(255, 40, 48, 53)
-                        : const Color.fromARGB(
-                            255, 48, 58, 64), // color of grid items
+                        : const Color.fromARGB(255, 48, 58, 64),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 14),
                       child: Column(
