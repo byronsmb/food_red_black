@@ -230,7 +230,3 @@ bool posicionElemento(int numero) {
   }
   return false;
 }
-
-//control de ERRORES
-//  Agrupar bien lo quese realiza en el INITSTATE
-//FUTURE BUILDER
