@@ -92,8 +92,8 @@ class _detalleComidaState extends State<detalleComida>
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black, // Color de la sombra
-                        spreadRadius: 5, // Radio de expansión de la sombra
-                        blurRadius: 30, // Radio de desenfoque de la sombra
+                        spreadRadius: 5,
+                        blurRadius: 30,
                         offset: Offset(6, 6),
                       ),
                     ],
