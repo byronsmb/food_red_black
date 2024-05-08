@@ -73,28 +73,26 @@ class _detalleComidaState extends State<detalleComida>
           ),
         ],
       ),
-      body: Center(
-        child: RotationTransition(
-          turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-          child: Hero(
-            tag: widget.comida.id,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Container(
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromARGB(255, 45, 54, 59),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        spreadRadius: 5,
-                        blurRadius: 30,
-                        offset: Offset(6, 6),
-                      ),
-                    ],
-                  ),
-                  child: Image.network(widget.comida.imagenUrl)),
-            ),
+      body: RotationTransition(
+        turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+        child: Hero(
+          tag: widget.comida.id,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: Container(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color.fromARGB(255, 45, 54, 59),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black,
+                      spreadRadius: 5,
+                      blurRadius: 30,
+                      offset: Offset(6, 6),
+                    ),
+                  ],
+                ),
+                child: Image.network(widget.comida.imagenUrl)),
           ),
         ),
       ),
