@@ -98,7 +98,11 @@ class _detalleComidaState extends State<detalleComida>
               ),
             ),
           ),
-          Container()
+          Container(
+            height: 200,
+            width: 200,
+            color: const Color.fromARGB(255, 40, 48, 53),
+          )
         ],
       ),
     );
