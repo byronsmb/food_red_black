@@ -99,7 +99,7 @@ class _detalleComidaState extends State<detalleComida>
             ),
           ),
           Container(
-            height: 200,
+            height: MediaQuery.of(context).size.height * 0.3,
             width: 200,
             color: const Color.fromARGB(255, 40, 48, 53),
           )
