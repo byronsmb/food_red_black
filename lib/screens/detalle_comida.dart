@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_red_black/models/comida.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class detalleComida extends StatefulWidget {
   const detalleComida({super.key, required this.comida});
@@ -78,13 +79,35 @@ class _detalleComidaState extends State<detalleComida>
           Column(
             children: [
               Container(
-                child: ShaderMask(
+                  child: Stack(
+                children: [
+                  Text(
+                    'Luxe',
+                    style: GoogleFonts.angkor(fontSize: 65).copyWith(
+                        foreground: Paint()
+                          ..color = Color.fromARGB(255, 45, 54, 59)),
+                  ),
+                  Text(
+                    'Luxe',
+                    style: GoogleFonts.angkor(fontSize: 65).copyWith(
+                      foreground: Paint()
+                        ..strokeWidth = 2
+                        ..color = Colors.black.withOpacity(0.5)
+                        ..style = PaintingStyle.stroke,
+                    ),
+                  ),
+                ],
+              )
+                  /*ShaderMask(
                   //blendMode: BlendMode.srcATop,
                   shaderCallback: (Rect bounds) {
                     return RadialGradient(
-                      center: Alignment.topRight,
+                      center: Alignment.center,
                       radius: 2.0,
-                      colors: [Colors.orangeAccent, Colors.redAccent],
+                      colors: [
+                        Color.fromARGB(255, 48, 57, 63),
+                        Color.fromARGB(255, 7, 7, 7),
+                      ],
                     ).createShader(bounds);
                   },
                   child: Text(
@@ -93,10 +116,12 @@ class _detalleComidaState extends State<detalleComida>
                       fontSize: 40.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                    
                     ),
+                    
                   ),
-                ),
-              ),
+                ),*/
+                  ),
               RotationTransition(
                 turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
                 child: Hero(
