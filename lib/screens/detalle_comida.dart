@@ -54,11 +54,6 @@ class _detalleComidaState extends State<detalleComida>
             ),
           ),
         ),
-        /*IconButton(
-            onPressed: () {},
-            color: Colors.red,
-            sha
-            icon: Icon(Icons.arrow_back)),*/ //Icon(Icons.account_circle_rounded),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -91,7 +86,7 @@ class _detalleComidaState extends State<detalleComida>
                     color: Color.fromARGB(255, 45, 54, 59),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black, // Color de la sombra
+                        color: Colors.black,
                         spreadRadius: 5,
                         blurRadius: 30,
                         offset: Offset(6, 6),
