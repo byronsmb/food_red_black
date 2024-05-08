@@ -73,36 +73,60 @@ class _detalleComidaState extends State<detalleComida>
           ),
         ],
       ),
-      body: Column(
+      body: Stack(
         children: [
-          RotationTransition(
-            turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-            child: Hero(
-              tag: widget.comida.id,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Container(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color.fromARGB(255, 45, 54, 59),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black,
-                          spreadRadius: 5,
-                          blurRadius: 30,
-                          offset: Offset(6, 6),
-                        ),
-                      ],
+          Column(
+            children: [
+              Container(
+                child: ShaderMask(
+                  //blendMode: BlendMode.srcATop,
+                  shaderCallback: (Rect bounds) {
+                    return RadialGradient(
+                      center: Alignment.topRight,
+                      radius: 2.0,
+                      colors: [Colors.orangeAccent, Colors.redAccent],
+                    ).createShader(bounds);
+                  },
+                  child: Text(
+                    'Hola Mundo',
+                    style: TextStyle(
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                    child: Image.network(widget.comida.imagenUrl)),
+                  ),
+                ),
               ),
-            ),
+              RotationTransition(
+                turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+                child: Hero(
+                  tag: widget.comida.id,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Container(
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 45, 54, 59),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black,
+                              spreadRadius: 5,
+                              blurRadius: 30,
+                              offset: Offset(6, 6),
+                            ),
+                          ],
+                        ),
+                        child: Image.network(widget.comida.imagenUrl)),
+                  ),
+                ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.3,
+                width: MediaQuery.of(context).size.width,
+                color: const Color.fromARGB(255, 40, 48, 53),
+              )
+            ],
           ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.3,
-            width: MediaQuery.of(context).size.width,
-            color: const Color.fromARGB(255, 40, 48, 53),
-          )
         ],
       ),
     );
