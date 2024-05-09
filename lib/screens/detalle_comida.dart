@@ -85,7 +85,7 @@ class _detalleComidaState extends State<detalleComida>
                     'Luxe',
                     style: GoogleFonts.angkor(fontSize: 65).copyWith(
                         foreground: Paint()
-                          ..color = Color.fromARGB(255, 45, 54, 59)),
+                          ..color = const Color.fromARGB(255, 45, 54, 59)),
                   ),
                   Text(
                     'Luxe',
@@ -97,31 +97,7 @@ class _detalleComidaState extends State<detalleComida>
                     ),
                   ),
                 ],
-              )
-                  /*ShaderMask(
-                  //blendMode: BlendMode.srcATop,
-                  shaderCallback: (Rect bounds) {
-                    return RadialGradient(
-                      center: Alignment.center,
-                      radius: 2.0,
-                      colors: [
-                        Color.fromARGB(255, 48, 57, 63),
-                        Color.fromARGB(255, 7, 7, 7),
-                      ],
-                    ).createShader(bounds);
-                  },
-                  child: Text(
-                    'Hola Mundo',
-                    style: TextStyle(
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    
-                    ),
-                    
-                  ),
-                ),*/
-                  ),
+              )),
               RotationTransition(
                 turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
                 child: Hero(
