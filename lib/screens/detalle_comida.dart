@@ -131,13 +131,13 @@ class _detalleComidaState extends State<detalleComida>
                   child: Row(
                     children: [
                       Icon(Icons.ac_unit_rounded),
-                      Text("23"),
+                      Text(
+                        "23",
+                        style: Google.s,
+                      ),
                       Spacer(),
                       Icon(Icons.ac_unit_rounded),
                       Text("24"),
-                      Spacer(),
-                      Icon(Icons.ac_unit_rounded),
-                      Text("25"),
                     ],
                   ),
                 ),
