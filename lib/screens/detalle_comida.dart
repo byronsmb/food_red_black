@@ -129,15 +129,19 @@ class _detalleComidaState extends State<detalleComida>
               children: [
                 Expanded(
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.ac_unit_rounded),
                       Text(
                         "23",
                         style: GoogleFonts.angkor(fontSize: 28),
                       ),
-                      Spacer(),
+                      SizedBox(width: 40),
                       Icon(Icons.ac_unit_rounded),
-                      Text("24"),
+                      Text(
+                        "23",
+                        style: GoogleFonts.angkor(fontSize: 28),
+                      ),
                     ],
                   ),
                 ),
