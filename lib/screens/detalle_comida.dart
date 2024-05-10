@@ -132,7 +132,7 @@ class _detalleComidaState extends State<detalleComida>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         FontAwesomeIcons.fireFlameCurved,
                         size: 30,
                         color: Colors.blue,
