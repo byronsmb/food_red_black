@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_red_black/models/comida.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class detalleComida extends StatefulWidget {
   const detalleComida({super.key, required this.comida});
@@ -131,7 +132,11 @@ class _detalleComidaState extends State<detalleComida>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.ac_unit_rounded),
+                      Icon(
+                        FontAwesomeIcons.fireFlameCurved,
+                        size: 30,
+                        color: Colors.blue,
+                      ),
                       Text(
                         "23",
                         style: GoogleFonts.angkor(fontSize: 28),
