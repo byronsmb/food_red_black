@@ -74,60 +74,76 @@ class _detalleComidaState extends State<detalleComida>
           ),
         ],
       ),
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
+          Container(
+              child: Stack(
             children: [
-              Container(
-                  child: Stack(
-                children: [
-                  Text(
-                    'Luxe',
-                    style: GoogleFonts.angkor(fontSize: 65).copyWith(
-                        foreground: Paint()
-                          ..color = const Color.fromARGB(255, 45, 54, 59)),
-                  ),
-                  Text(
-                    'Luxe',
-                    style: GoogleFonts.angkor(fontSize: 65).copyWith(
-                      foreground: Paint()
-                        ..strokeWidth = 2
-                        ..color = Colors.black.withOpacity(0.5)
-                        ..style = PaintingStyle.stroke,
-                    ),
-                  ),
-                ],
-              )),
-              RotationTransition(
-                turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
-                child: Hero(
-                  tag: widget.comida.id,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Container(
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromARGB(255, 45, 54, 59),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black,
-                              spreadRadius: 5,
-                              blurRadius: 30,
-                              offset: Offset(6, 6),
-                            ),
-                          ],
-                        ),
-                        child: Image.network(widget.comida.imagenUrl)),
-                  ),
+              Text(
+                'Luxe',
+                style: GoogleFonts.angkor(fontSize: 65).copyWith(
+                    foreground: Paint()
+                      ..color = const Color.fromARGB(255, 45, 54, 59)),
+              ),
+              Text(
+                'Luxe',
+                style: GoogleFonts.angkor(fontSize: 65).copyWith(
+                  foreground: Paint()
+                    ..strokeWidth = 2
+                    ..color = Colors.black.withOpacity(0.5)
+                    ..style = PaintingStyle.stroke,
                 ),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.3,
-                width: MediaQuery.of(context).size.width,
-                color: const Color.fromARGB(255, 40, 48, 53),
-              )
             ],
+          )),
+          RotationTransition(
+            turns: Tween(begin: 0.0, end: 1.0).animate(_controller),
+            child: Hero(
+              tag: widget.comida.id,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromARGB(255, 45, 54, 59),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          spreadRadius: 5,
+                          blurRadius: 30,
+                          offset: Offset(6, 6),
+                        ),
+                      ],
+                    ),
+                    child: Image.network(widget.comida.imagenUrl)),
+              ),
+            ),
           ),
+          SizedBox(height: 30),
+          Container(
+            height: MediaQuery.of(context).size.height * 0.33,
+            width: MediaQuery.of(context).size.width,
+            color: const Color.fromARGB(255, 40, 48, 53),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      Icon(Icons.ac_unit_rounded),
+                      Text("23"),
+                      Spacer(),
+                      Icon(Icons.ac_unit_rounded),
+                      Text("24"),
+                      Spacer(),
+                      Icon(Icons.ac_unit_rounded),
+                      Text("25"),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
