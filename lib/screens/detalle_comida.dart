@@ -142,7 +142,11 @@ class _detalleComidaState extends State<detalleComida>
                         style: GoogleFonts.angkor(fontSize: 28),
                       ),
                       SizedBox(width: 40),
-                      Icon(Icons.ac_unit_rounded),
+                      Icon(
+                        FontAwesomeIcons.weightHanging,
+                        size: 30,
+                        color: Color.fromARGB(255, 133, 136, 136),
+                      ),
                       Text(
                         "23",
                         style: GoogleFonts.angkor(fontSize: 28),
