@@ -133,7 +133,7 @@ class _detalleComidaState extends State<detalleComida>
                       Icon(Icons.ac_unit_rounded),
                       Text(
                         "23",
-                        style: Google.s,
+                        style: GoogleFonts.angkor(fontSize: 28),
                       ),
                       Spacer(),
                       Icon(Icons.ac_unit_rounded),
