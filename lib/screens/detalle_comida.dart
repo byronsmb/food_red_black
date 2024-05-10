@@ -140,7 +140,11 @@ class _detalleComidaState extends State<detalleComida>
                       Text("25"),
                     ],
                   ),
-                )
+                ),
+                Text(
+                    "jsnvoanarerrf ajrfnaer faeirrf riafair fiurf arifri fear aerf aijrjr fioarf rfh arfaiwj far fiaj fiarw fia"),
+                Text("12\$"),
+                //BOTONES DEPAGAR
               ],
             ),
           )
