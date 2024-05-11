@@ -167,7 +167,8 @@ class _detalleComidaState extends State<detalleComida>
                   ),
                   Container(
                     //linea horizontal
-                    width: 100, // Ancho de la línea
+                    width:
+                        MediaQuery.of(context).size.width, // Ancho de la línea
                     height: 2, // Altura de la línea
                     color:
                         Color.fromARGB(255, 180, 13, 35), // Color de la línea
@@ -178,67 +179,70 @@ class _detalleComidaState extends State<detalleComida>
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                   ),
-
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "12\$",
-                      style: GoogleFonts.bayon(fontSize: 40),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        "${widget.comida.precio} \$",
+                        style: GoogleFonts.bayon(fontSize: 40),
+                      ),
                     ),
                   ),
-
-                  Row(
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromARGB(255, 48, 58, 64),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 48, 58, 64),
+                          ),
+                          child: const Icon(
+                            Icons.remove,
+                            size: 33,
+                            color: Color.fromARGB(255, 180, 13, 35),
+                          ),
                         ),
-                        child: const Icon(
-                          Icons.remove,
-                          size: 33,
-                          color: Color.fromARGB(255, 180, 13, 35),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Text(
+                            "10",
+                            style: GoogleFonts.bebasNeue(fontSize: 40),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Text(
-                          "10",
-                          style: GoogleFonts.bebasNeue(fontSize: 40),
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 48, 58, 64),
+                          ),
+                          child: const Icon(
+                            Icons.add,
+                            size: 33,
+                            color: Color.fromARGB(255, 180, 13, 35),
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromARGB(255, 48, 58, 64),
+                        Spacer(),
+                        Container(
+                          width: 120,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 48, 58, 64),
+                          ),
+                          child: const Icon(
+                            Icons.shopping_cart_outlined,
+                            size: 33,
+                            color: Color.fromARGB(255, 180, 13, 35),
+                          ),
                         ),
-                        child: const Icon(
-                          Icons.add,
-                          size: 33,
-                          color: Color.fromARGB(255, 180, 13, 35),
-                        ),
-                      ),
-                      Spacer(),
-                      Container(
-                        width: 120,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromARGB(255, 48, 58, 64),
-                        ),
-                        child: const Icon(
-                          Icons.shopping_cart_outlined,
-                          size: 33,
-                          color: Color.fromARGB(255, 180, 13, 35),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  //BOTONES DEPAGAR
                 ],
               ),
             ),
