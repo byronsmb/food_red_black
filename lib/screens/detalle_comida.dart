@@ -126,39 +126,121 @@ class _detalleComidaState extends State<detalleComida>
             height: MediaQuery.of(context).size.height * 0.33,
             width: MediaQuery.of(context).size.width,
             color: const Color.fromARGB(255, 40, 48, 53),
-            child: Column(
-              children: [
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          FontAwesomeIcons.fireFlameCurved,
+                          size: 30,
+                          color: Color.fromARGB(255, 133, 136, 136),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          "23",
+                          style: GoogleFonts.angkor(
+                            fontSize: 28,
+                            color: Color.fromARGB(255, 133, 136, 136),
+                          ),
+                        ),
+                        SizedBox(width: 40),
+                        const Icon(
+                          FontAwesomeIcons.weightHanging,
+                          size: 30,
+                          color: Color.fromARGB(255, 133, 136, 136),
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          "23",
+                          style: GoogleFonts.angkor(
+                            fontSize: 28,
+                            color: Color.fromARGB(255, 133, 136, 136),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    //linea horizontal
+                    width: 100, // Ancho de la línea
+                    height: 2, // Altura de la línea
+                    color:
+                        Color.fromARGB(255, 180, 13, 35), // Color de la línea
+                  ),
+                  Text(
+                    widget.comida.descripcion,
+                    style: GoogleFonts.roboto(fontSize: 16),
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      "12\$",
+                      style: GoogleFonts.bayon(fontSize: 40),
+                    ),
+                  ),
+
+                  Row(
                     children: [
-                      const Icon(
-                        FontAwesomeIcons.fireFlameCurved,
-                        size: 30,
-                        color: Colors.blue,
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 48, 58, 64),
+                        ),
+                        child: const Icon(
+                          Icons.remove,
+                          size: 33,
+                          color: Color.fromARGB(255, 180, 13, 35),
+                        ),
                       ),
-                      Text(
-                        "23",
-                        style: GoogleFonts.angkor(fontSize: 28),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Text(
+                          "10",
+                          style: GoogleFonts.bebasNeue(fontSize: 40),
+                        ),
                       ),
-                      SizedBox(width: 40),
-                      const Icon(
-                        FontAwesomeIcons.weightHanging,
-                        size: 30,
-                        color: Color.fromARGB(255, 133, 136, 136),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 48, 58, 64),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          size: 33,
+                          color: Color.fromARGB(255, 180, 13, 35),
+                        ),
                       ),
-                      Text(
-                        "23",
-                        style: GoogleFonts.angkor(fontSize: 28),
+                      Spacer(),
+                      Container(
+                        width: 120,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 48, 58, 64),
+                        ),
+                        child: const Icon(
+                          Icons.shopping_cart_outlined,
+                          size: 33,
+                          color: Color.fromARGB(255, 180, 13, 35),
+                        ),
                       ),
                     ],
                   ),
-                ),
-                Text(
-                    "jsnvoanarerrf ajrfnaer faeirrf riafair fiurf arifri fear aerf aijrjr fioarf rfh arfaiwj far fiaj fiarw fia"),
-                Text("12\$"),
-                //BOTONES DEPAGAR
-              ],
+                  //BOTONES DEPAGAR
+                ],
+              ),
             ),
           )
         ],
