@@ -15,6 +15,8 @@ class detalleComida extends StatefulWidget {
 class _detalleComidaState extends State<detalleComida>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  int cantidad = 1;
+
   @override
   void initState() {
     _controller = AnimationController(
@@ -131,7 +133,8 @@ class _detalleComidaState extends State<detalleComida>
               child: Column(
                 //mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Expanded(
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 6),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -173,18 +176,20 @@ class _detalleComidaState extends State<detalleComida>
                     color:
                         Color.fromARGB(255, 180, 13, 35), // Color de la línea
                   ),
+                  SizedBox(height: 6),
                   Text(
                     widget.comida.descripcion,
                     style: GoogleFonts.roboto(fontSize: 16),
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "${widget.comida.precio} \$",
+                        "${double.parse((widget.comida.precio * cantidad).toStringAsFixed(2))} \$",
                         style: GoogleFonts.bayon(fontSize: 40),
                       ),
                     ),
@@ -193,51 +198,85 @@ class _detalleComidaState extends State<detalleComida>
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Row(
                       children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromARGB(255, 48, 58, 64),
-                          ),
-                          child: const Icon(
-                            Icons.remove,
-                            size: 33,
-                            color: Color.fromARGB(255, 180, 13, 35),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              if (cantidad > 0) {
+                                cantidad--;
+                              }
+                            });
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color.fromARGB(255, 48, 58, 64),
+                            ),
+                            child: const Icon(
+                              Icons.remove,
+                              size: 33,
+                              color: Color.fromARGB(255, 180, 13, 35),
+                            ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Text(
-                            "10",
+                            "$cantidad",
                             style: GoogleFonts.bebasNeue(fontSize: 40),
                           ),
                         ),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromARGB(255, 48, 58, 64),
-                          ),
-                          child: const Icon(
-                            Icons.add,
-                            size: 33,
-                            color: Color.fromARGB(255, 180, 13, 35),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              cantidad++;
+                            });
+                          },
+                          child: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color.fromARGB(255, 48, 58, 64),
+                            ),
+                            child: const Icon(
+                              Icons.add,
+                              size: 33,
+                              color: Color.fromARGB(255, 180, 13, 35),
+                            ),
                           ),
                         ),
                         Spacer(),
-                        Container(
-                          width: 120,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromARGB(255, 48, 58, 64),
-                          ),
-                          child: const Icon(
-                            Icons.shopping_cart_outlined,
-                            size: 33,
-                            color: Color.fromARGB(255, 180, 13, 35),
+                        InkWell(
+                          onTap: () {
+                            final snackBar = SnackBar(
+                              content: const Text(
+                                'Agregado al carrito',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              backgroundColor:
+                                  (Color.fromARGB(69, 244, 67, 54)),
+                              action: SnackBarAction(
+                                label: 'Ocultar',
+                                onPressed: () {},
+                              ),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          },
+                          child: Container(
+                            width: 120,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color.fromARGB(255, 48, 58, 64),
+                            ),
+                            child: const Icon(
+                              Icons.shopping_cart_outlined,
+                              size: 33,
+                              color: Color.fromARGB(255, 180, 13, 35),
+                            ),
                           ),
                         ),
                       ],
