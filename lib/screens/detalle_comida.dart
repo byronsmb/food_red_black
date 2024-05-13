@@ -151,7 +151,7 @@ class _detalleComidaState extends State<detalleComida>
                             color: Color.fromARGB(255, 133, 136, 136),
                           ),
                         ),
-                        SizedBox(width: 40),
+                        const SizedBox(width: 40),
                         const Icon(
                           FontAwesomeIcons.weightHanging,
                           size: 30,
