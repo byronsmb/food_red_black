@@ -143,7 +143,7 @@ class _detalleComidaState extends State<detalleComida>
                           size: 30,
                           color: Color.fromARGB(255, 133, 136, 136),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           "23",
                           style: GoogleFonts.angkor(
