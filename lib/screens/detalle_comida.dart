@@ -173,8 +173,8 @@ class _detalleComidaState extends State<detalleComida>
                     width:
                         MediaQuery.of(context).size.width, // Ancho de la línea
                     height: 2, // Altura de la línea
-                    color:
-                        Color.fromARGB(255, 180, 13, 35), // Color de la línea
+                    color: const Color.fromARGB(
+                        255, 180, 13, 35), // Color de la línea
                   ),
                   SizedBox(height: 6),
                   Text(
