@@ -123,7 +123,7 @@ class _detalleComidaState extends State<detalleComida>
               ),
             ),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Container(
             height: MediaQuery.of(context).size.height * 0.33,
             width: MediaQuery.of(context).size.width,
