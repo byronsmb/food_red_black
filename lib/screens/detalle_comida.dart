@@ -176,7 +176,7 @@ class _detalleComidaState extends State<detalleComida>
                     color: const Color.fromARGB(
                         255, 180, 13, 35), // Color de la línea
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   Text(
                     widget.comida.descripcion,
                     style: GoogleFonts.roboto(fontSize: 16),
