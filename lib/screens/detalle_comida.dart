@@ -183,7 +183,7 @@ class _detalleComidaState extends State<detalleComida>
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(right: 15),
                     child: Align(
