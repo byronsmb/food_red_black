@@ -3,16 +3,16 @@ import 'package:food_red_black/models/comida.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class detalleComida extends StatefulWidget {
-  const detalleComida({super.key, required this.comida});
+class DetalleComida extends StatefulWidget {
+  const DetalleComida({super.key, required this.comida});
 
   final Comida comida;
 
   @override
-  State<detalleComida> createState() => _detalleComidaState();
+  State<DetalleComida> createState() => _DetalleComidaState();
 }
 
-class _detalleComidaState extends State<detalleComida>
+class _DetalleComidaState extends State<DetalleComida>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   int cantidad = 1;

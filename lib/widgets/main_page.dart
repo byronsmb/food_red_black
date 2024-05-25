@@ -133,7 +133,7 @@ class _MainPageState extends State<MainPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => detalleComida(
+                          builder: (context) => DetalleComida(
                             comida: comidasDisponibles[index],
                           ),
                         ));
