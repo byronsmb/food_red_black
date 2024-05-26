@@ -191,7 +191,6 @@ class _MainPageState extends State<MainPage> {
                                   comidasDisponibles[index].imagenUrl),
                             ),
                           ),
-                          //SizedBox(height: 10),
                           Text(
                             comidasDisponibles[index].nombre,
                             maxLines: 2,
