@@ -256,7 +256,7 @@ class _DetalleComidaState extends State<DetalleComida>
                                 style: TextStyle(color: Colors.white),
                               ),
                               backgroundColor:
-                                  (Color.fromARGB(69, 244, 67, 54)),
+                                  (const Color.fromARGB(69, 244, 67, 54)),
                               action: SnackBarAction(
                                 label: 'Ocultar',
                                 onPressed: () {},
