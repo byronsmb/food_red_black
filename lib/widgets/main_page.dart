@@ -116,7 +116,6 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
           ),
-          /* ),*/
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
