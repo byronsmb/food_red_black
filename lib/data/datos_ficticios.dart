@@ -1,4 +1,4 @@
-import 'package:food_red_black/models/comida.dart';
+// import 'package:food_red_black/models/comida.dart';
 
 /*var comidaDisponible = [
   Comida(
