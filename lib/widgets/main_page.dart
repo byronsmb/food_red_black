@@ -119,7 +119,7 @@ class _MainPageState extends State<MainPage> {
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // number row
+                crossAxisCount: 2, // numero filas
                 mainAxisSpacing: 4.0, // espacio entre filas
                 crossAxisSpacing: 4.0, // espacio entre columnas
                 childAspectRatio: 0.65,
