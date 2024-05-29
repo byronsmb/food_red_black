@@ -161,7 +161,7 @@ class _DetalleComidaState extends State<DetalleComida>
                           "23",
                           style: GoogleFonts.angkor(
                             fontSize: 28,
-                            color: Color.fromARGB(255, 133, 136, 136),
+                            color: const Color.fromARGB(255, 133, 136, 136),
                           ),
                         ),
                       ],
