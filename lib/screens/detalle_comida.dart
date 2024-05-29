@@ -131,7 +131,6 @@ class _DetalleComidaState extends State<DetalleComida>
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
-                //mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 6),
