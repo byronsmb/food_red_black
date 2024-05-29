@@ -68,7 +68,6 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  bool _ampliado = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
