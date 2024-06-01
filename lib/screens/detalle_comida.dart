@@ -23,7 +23,7 @@ class _DetalleComidaState extends State<DetalleComida>
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-    _controller.forward(); //inicio animacion rotacion
+    _controller.forward(); //Inicio animacion rotacion
     super.initState();
   }
 
